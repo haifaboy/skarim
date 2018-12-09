@@ -1,0 +1,54 @@
+﻿[ {
+      "mivnecom" : "HHI" ,
+      "mivneid" : 1 ,
+      "mivneidesc" : "מעבדה 1" , 
+      "unit" :  "15000" , 
+      "mivnetype" : "R"
+  },
+{
+      "mivnecom" : "HHI" ,
+      "mivneid" : 2 ,
+      "mivneidesc" : "מעבדה 2" , 
+      "unit" :  "18000" , 
+      "mivnetype" : "R"
+     
+       
+  },
+{
+      "mivnecom" : "HHI" ,
+      "mivneid" : 3 ,
+      "mivneidesc" : "מעבדה 1" , 
+      "unit" :  "15000" , 
+      "mivnetype" : "R"
+     
+       
+  },
+{
+      "mivnecom" : "HHI" ,
+      "mivneid" : 3 ,
+      "mivneidesc" : "מעבדה31" , 
+      "unit" :  "20000" , 
+      "mivnetype" : "D"
+     
+       
+  },
+{
+      "mivnecom" : "HHI" ,
+      "mivneid" : 4 ,
+      "mivneidesc" : "חשמליה" , 
+      "unit" :  "20000" , 
+      "mivnetype" : "R"
+       
+     
+       
+  },
+{
+      "mivnecom" : "HHI" ,
+      "mivneid" : 5 ,
+      "mivneidesc" : "מתקן אכסון חומרים" , 
+      "unit" :  "15000" , 
+      "mivnetype" : "D"
+     
+  }
+]
+  

@@ -1,0 +1,37 @@
+body {
+    direction: rtl;
+    text-align: right;
+} 
+
+
+
+.recipe > img {
+    object-fit: cover;
+    height: 300px;
+}
+
+.collapsibleNavbar {
+
+    position: relative ; 
+
+}
+
+@media only screen and (min-width: 600px) {
+  
+    #secnav {
+
+        position: absolute ;
+        left: 10px ;
+      
+      }
+
+      .login {
+        width: 550px;
+        text-align: center ;
+        margin: 0 auto;
+    }
+
+  }
+
+
+    
