@@ -2,8 +2,8 @@
     "users": [
         {
             "id": 1,
-            "fname": "ניר",
-            "lname": "ניר",
+            "fname": "aaa",
+            "lname": "bbbbbbbb",
             "email": "nirch.work@gmail.com",
             "pwd": "123"
         },
@@ -16,8 +16,8 @@
         }, 
         {
             "id": 3,
-            "fname": "ניר",
-            "lname": "ניר",
+            "fname": "bbb",
+            "lname": "bbb",
             "email": "nirch.work1111@gmail.com",
             "pwd": "123"
             
