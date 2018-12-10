@@ -2,8 +2,8 @@
     "users": [
         {
             "id": 1,
-            "fname": "Test",
-            "lname": "Test",
+            "fname": "ניר",
+            "lname": "ניר",
             "email": "nirch.work@gmail.com",
             "pwd": "123"
         },
