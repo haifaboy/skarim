@@ -1,20 +1,66 @@
 {
     "users": [
         {
-            "id": 1,
-            "fname": "Nir",
-            "lname": "Channes",
-            "email": "nirch.work@gmail.com",
-            "pwd": "123"
-        },
-        {
-            "id": 2,
-            "fname": "John",
-            "lname": "Doe",
-            "email": "john@john.com",
-            "pwd": "123"
-        }
-    ],
+            "userid": "1",
+            "usertz": "022659049",
+            "username": "אבי כהן",
+            "unit": "10000",
+            "usertype": "SU",
+            "usercomp": "HHI",
+            "pass": "tazl0000",
+            "email": "haifaboy@gmail.com"
+      },
+      {
+            "userid": "2",
+            "usertz": "022659048",
+            "username": "שלום אסייג",
+            "unit": "10000",
+            "usertype": "SAFTYDEP",
+            "usercomp": "HHI",
+            "pass": "tazl0001",
+            "email": "haifaboy@gmail.com"
+      },
+      {
+            "userid": "3",
+            "usertz": "022659047",
+            "username": "ירון שמואל",
+            "unit": "10000",
+            "usertype": "SAFTYDEP",
+            "usercomp": "HHI",
+            "pass": "tazl0002",
+            "email": "haifaboy@gmail.com"
+      },
+      {
+            "userid": "4",
+            "usertz": "022659046",
+            "username": "ישראל רבינוביץ",
+            "unit": "15000",
+            "usertype": "UNITSUPER",
+            "usercomp": "HHI",
+            "pass": "tazl0003",
+            "email": "haifaboy@gmail.com"
+      },
+      {
+            "userid": "5",
+            "usertz": "022659045",
+            "username": "עדי שטייניץ",
+            "unit": "18000",
+            "usertype": "UNITSUPER",
+            "usercomp": "HHI",
+            "pass": "tazl0004",
+            "email": "haifaboy@gmail.com"
+      },
+      {
+            "userid": "6",
+            "usertz": "022659044",
+            "username": "אבי כהן",
+            "unit": "20000",
+            "usertype": "SUNITSUPER",
+            "usercomp": "HHI",
+            "pass": "tazl0005",
+            "email": "haifaboy@gmail.com"
+      }
+],
     "recipes": [
         {
             "id": 1,
