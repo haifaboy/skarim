@@ -31,7 +31,26 @@ body {
         margin: 0 auto;
     }
 
+    h5 {
+     
+        visibility: hidden ; 
+        
+      }
+
+
   }
 
+  h5 {
 
+    color: white ;
+    margin-bottom: 0px;
+    width: 70%;
+    position: absolute ;
+    text-align: center;
+    visibility: visible ; 
+
+
+}  
+
+  
     

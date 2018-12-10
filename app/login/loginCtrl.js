@@ -10,7 +10,7 @@ app.controller("loginCtrl", function($scope, $location, user) {
 
         user.login($scope.tz, $scope.pwd).then(function() {
             // success login
-            $location.path("/")
+           $location.path("/")
         }, function(error) {
             // failed login
             $scope.invalidLogin = true;
