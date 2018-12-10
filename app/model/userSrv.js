@@ -5,12 +5,12 @@ app.factory("user", function($q, $http) {
     function User(plainUser) {
 
 
-        this.id = plainUser.userid;
-        this.usertz = plainUser.usertz;
-        this.username = plainUser.username;
+        this.id = plainUser.id;
+        this.tz = plainUser.tz;
+        this.name = plainUser.name;
         this.unit = plainUser.unit;
         this.usertype = plainUser.usertype;
-        this.usercomp = plainUser.usercomp;
+        this.comp = plainUser.comp;
         this.pass = plainUser.pass;
         this.email = plainUser.email;
     }
@@ -18,7 +18,7 @@ app.factory("user", function($q, $http) {
     function login(tz, pwd) {
         var async = $q.defer();
 
-        var loginURL = "http://my-json-server.typicode.com/haifaboy/skarim/" +
+        var loginURL = "https://my-json-server.typicode.com/haifaboy/skarim/users" +
             tz + "&pass=" + pwd;
         $http.get(loginURL).then(function(response) {
             if (response.data.length > 0) {
