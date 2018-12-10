@@ -1,3 +1,108 @@
 {
-
+    "users": [
+        {
+              "userid": "1",
+              "usertz": "022659049",
+              "username": "אבי כהן",
+              "unit": "10000",
+              "usertype": "SU",
+              "usercomp": "HHI",
+              "pass": "tazl0000",
+              "email": "haifaboy@gmail.com"
+        },
+        {
+              "userid": "2",
+              "usertz": "022659048",
+              "username": "שלום אסייג",
+              "unit": "10000",
+              "usertype": "SAFTYDEP",
+              "usercomp": "HHI",
+              "pass": "tazl0001",
+              "email": "haifaboy@gmail.com"
+        },
+        {
+              "userid": "3",
+              "usertz": "022659047",
+              "username": "ירון שמואל",
+              "unit": "10000",
+              "usertype": "SAFTYDEP",
+              "usercomp": "HHI",
+              "pass": "tazl0002",
+              "email": "haifaboy@gmail.com"
+        },
+        {
+              "userid": "4",
+              "usertz": "022659046",
+              "username": "ישראל רבינוביץ",
+              "unit": "15000",
+              "usertype": "UNITSUPER",
+              "usercomp": "HHI",
+              "pass": "tazl0003",
+              "email": "haifaboy@gmail.com"
+        },
+        {
+              "userid": "5",
+              "usertz": "022659045",
+              "username": "עדי שטייניץ",
+              "unit": "18000",
+              "usertype": "UNITSUPER",
+              "usercomp": "HHI",
+              "pass": "tazl0004",
+              "email": "haifaboy@gmail.com"
+        },
+        {
+              "userid": "6",
+              "usertz": "022659044",
+              "username": "אבי כהן",
+              "unit": "20000",
+              "usertype": "SUNITSUPER",
+              "usercomp": "HHI",
+              "pass": "tazl0005",
+              "email": "haifaboy@gmail.com"
+        }
+  ],
+  "mivnim": [
+        {
+              "mivnecom": "HHI",
+              "mivneid": 1,
+              "mivneidesc": "מעבדה 1",
+              "unit": "15000",
+              "mivnetype": "R"
+        },
+        {
+              "mivnecom": "HHI",
+              "mivneid": 2,
+              "mivneidesc": "מעבדה 2",
+              "unit": "18000",
+              "mivnetype": "R"
+        },
+        {
+              "mivnecom": "HHI",
+              "mivneid": 3,
+              "mivneidesc": "מעבדה 1",
+              "unit": "15000",
+              "mivnetype": "R"
+        },
+        {
+              "mivnecom": "HHI",
+              "mivneid": 3,
+              "mivneidesc": "מעבדה31",
+              "unit": "20000",
+              "mivnetype": "D"
+        },
+        {
+              "mivnecom": "HHI",
+              "mivneid": 4,
+              "mivneidesc": "חשמליה",
+              "unit": "20000",
+              "mivnetype": "R"
+        },
+        {
+              "mivnecom": "HHI",
+              "mivneid": 5,
+              "mivneidesc": "מתקן אכסון חומרים",
+              "unit": "15000",
+              "mivnetype": "D"
+        }
+  ]
 }
