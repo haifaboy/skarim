@@ -1,7 +1,7 @@
 app.factory("user", function($q, $http) {
 
     var activeUser = getlocal() ;
-    var imgprepath = "app/pic/" ; 
+    var imgprepath = "app/pics/" ; 
 
     
    function User(plainUser) {
