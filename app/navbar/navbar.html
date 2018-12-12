@@ -1,6 +1,7 @@
    <nav class="navbar navbar-expand-md bg-dark navbar-dark" >
     <a class="navbar-brand" rel="home" href="#!/" title="מערכת סקרי בטיחות">
-      <img style="max-width:30px; margin-top: -7px;" src="app/pics/safety.png" ng-click="gohome()">
+      <img style="max-width:30px; margin-top: -7px;" ng-src="app/pics/safety.png" ng-click="gohome()">
+      <img style="max-width:30px; margin-top: -7px;" ng-src ={{imgpath}} ng-click="gohome()">
     </a>
    
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -36,7 +37,7 @@
     
 </nav> 
 <h5 class="navbar-text pull-left" ng-show ="isUserLoggedIn()" >
-    {{username}} <img id = "compimg" ng-src ={{imgpath}} ></h5> 
+    {{username}} </h5> 
 
 
 

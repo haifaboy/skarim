@@ -121,6 +121,8 @@ app.factory("user", function($q, $http) {
 
         var imgpath  = ''
 
+        if ( activeUser && activeUser.comp ) {
+
         switch(activeUser.comp) {
             case "HHI":
             imgpath = imgprepath + activeUser.comp+ '.png'
@@ -129,9 +131,35 @@ app.factory("user", function($q, $http) {
              
           }
 
+        }
+
         return imgpath  ;   
 
     }
+    function getcompsite ()
+    {
+
+        var siteurl = ''
+
+        if ( activeUser && activeUser.comp ) {
+
+        switch(activeUser.comp) {
+            case "HHI":
+            siteurl = 'www.iec.co.il'
+              break;
+            default:
+             
+          }
+
+        }
+
+        return siteurl  ;   
+
+    }
+
+
+
+
 
     function isVisibleMenuItem ( menuItem )
     {
@@ -179,6 +207,7 @@ app.factory("user", function($q, $http) {
         logout: logout,
         getActiveUser: getActiveUser,
         isVisibleMenuItem: isVisibleMenuItem ,
-        getcomimg : getcomimg
+        getcomimg : getcomimg ,
+        getcompsite : getcompsite
     }
 })
