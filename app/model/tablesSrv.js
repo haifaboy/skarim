@@ -1,40 +1,35 @@
 app.factory("tables", function($q, $http, user) {
 
-    var tables = {};
-    var wasEverLoaded = {};
+    var tables =[] ;
+    var wasEverLoaded = false ;
     var comp = user.getcomp();
 
     function Table(tabledet) {
-        this.com = tabledet.comp
+        this.comp = tabledet.comp
         this.id = tabledet.id;
-        this.name = plainRecipe.name;
-       
-       
+        this.name = tabledet.name;
+        this.desc = tabledet.desc;
+         
     }
 
     function getActiveTables() {
         var async = $q.defer();
 
-      
-          
+                 
         if (wasEverLoaded) {
             async.resolve(tables);
         } else {
 
-            ;
-            
             var getTablesURL = "https://my-json-server.typicode.com/haifaboy/skarim/tables/?comp=" + comp ;
             
             $http.get(getTablesURL).then(function(response) {
 
-               alert(response.data.length);
-
-               for (var i = 0; i < response.data.length; i++) {
+                    for (var i = 0; i < response.data.length; i++) {
                     var table = new Table(response.data[i]);
                     tables.push(table);
                 }
                 wasEverLoaded = true;
-                async.resolve(mivnim);
+                async.resolve(tables);
             }, function(error) {
                 async.reject(error);
             });
@@ -47,7 +42,8 @@ app.factory("tables", function($q, $http, user) {
 
        var nextid ;
 
-       if ( table.length =  0 )  {
+       
+       if ( tables.length ===  0 )  {
 
         nextid  = 1 ; 
 
@@ -83,12 +79,13 @@ app.factory("tables", function($q, $http, user) {
 
     }
 
-    
+       
 
     function createTable(  name, desc) {
         var async = $q.defer();
 
         var id = getNextID() ; 
+
         var newTable = new Table ( comp , id , name, desc );
 
         tables.push(newTable);

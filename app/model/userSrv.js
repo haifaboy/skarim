@@ -2,7 +2,7 @@ app.factory("user", function($q, $http) {
 
     var activeUser = getlocal() ;
     var imgprepath = "app/pics/" ; 
-    var users = [] ;
+    var users = [];
     var comp = getcomp() ; 
     var wasEverLoaded = false ;
 
@@ -85,11 +85,10 @@ app.factory("user", function($q, $http) {
        
             $http.get(loginURL).then(function(response) {
                 if (response.data.length > 0) {
-                   
-                
+                 
                 activeUser = new User(response.data[0]);
                 setlocal(response.data[0]) ;
-                user.getallusers() ;
+                getallusers() ;
                 async.resolve(activeUser);
                
               
@@ -119,7 +118,7 @@ app.factory("user", function($q, $http) {
             } else {
                    
                 var UsersURL = "https://my-json-server.typicode.com/haifaboy/skarim/users?comp=" +
-             activeUser.comp; 
+                activeUser.comp; 
              
                 
                 $http.get(UsersURL).then(function(response) {

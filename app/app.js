@@ -20,8 +20,7 @@ app.config(function($routeProvider) {
     }).when("/reports" , {
         templateUrl: "app/reports/reports.html",
         controller: "reportsrCtrl"
-    })
-    .when("/system" , {
+    }).when("/system" , {
         templateUrl: "app/system/system.html",
         controller: "systemrCtrl"
     })

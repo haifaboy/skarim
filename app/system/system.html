@@ -1,30 +1,25 @@
 <navbar-recipe></navbar-recipe>
 <div class="container">
-        <h2>טבלאות מערכת</h2>
-       <table class="table">
-          <thead>
-            <tr>
-              <th>שם הטבלה</th>
-              <th>תאור</th>
-              <th>אחראי מבנה</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>משתמשים</td>
-              <td>הגדרת משתמשי המערכת</td>
-              <td></td>
-            </tr>      
-            <tr >
-              <td>מבנים</td>
-              <td>מבני המפעל</td>
-              <td></td>
-            </tr>
-             
-          </tbody>
-        </table>
-      </div>
+  <h2>טבלאות מערכת</h2>
+ <table class="table table-success" >
+      <thead>
+        <tr >
+          <th style = "border : 2px solid black">No.</th>
+          <th>שם הטבלה</th>
+          <th>תאור</th>
+        </tr>
+      </thead>
+      <tbody >
+          <tr  ng-repeat="table in tables" contenteditable=setcontenteditable(table))>
+              <td>{{table.id}}</td> 
+              <td>{{table.name }}</td>
+              <td>{{table.desc}}</td>
+          </tr>      
+       
+      </tbody>
       
-      </body>
-      </html>
-      
+  </table>
+  <button type="button" class="btn btn-success" ng-click="newTable()">חדש</button>
+  <button type="button" class="btn btn-success" ng-click="saveTable()">שמור</button>
+</div>
+

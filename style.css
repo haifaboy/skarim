@@ -141,6 +141,23 @@ span.psw {
     border: 3px solid white;
     font-weight: bold;
   }
+
+  th , tr , td , thead , .table{
+    border : 2px solid black ;
+   
+  }
+
+  tr {
+
+           height: 56px;
+
+  }
+
+  .table thead th {
+
+    border-bottom: 2px solid black ;
+
+  }
   
 
 
