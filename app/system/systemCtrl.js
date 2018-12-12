@@ -15,7 +15,7 @@ app.controller("systemrCtrl", function($scope, $location, user,mivne,tables ) {
     $scope.setcontenteditable = function(intable){
 
         alert(1)
-        return intable === $scope.tables[$scope.tables.length] ;
+        return intable.id === $scope.tables[$scope.tables.length].id ;
         
 
     }
