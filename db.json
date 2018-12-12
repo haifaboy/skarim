@@ -1,108 +1,122 @@
-﻿{
-    "users": [
-        {
-              "id": 1,
-              "tz": "022659049",
-              "name": "אבי כהן",
-              "unit": "10000",
-              "usertype": "SU",
-              "comp": "HHI",
-              "pass": "tazl0000",
-              "email": "haifaboy@gmail.com"
-        },
-        {
-              "id": 2,
-              "tz": "022659048",
-              "name": "שלום אסייג",
-              "unit": "10000",
-              "usertype": "SAFTYDEP",
-              "comp": "HHI",
-              "pass": "tazl0001",
-              "email": "haifaboy@gmail.com"
-        },
-        {
-              "id": 3,
-              "tz": "022659047",
-              "name": "ירון שמואל",
-              "unit": "10000",
-              "usertype": "SAFTYDEP",
-              "comp": "HHI",
-              "pass": "tazl0002",
-              "email": "haifaboy@gmail.com"
-        },
-        {
-              "id": 4,
-              "tz": "022659046",
-              "name": "ישראל רבינוביץ",
-              "unit": "15000",
-              "usertype": "UNITSUPER",
-              "comp": "HHI",
-              "pass": "tazl0003",
-              "email": "haifaboy@gmail.com"
-        },
-        {
-              "id": 5,
-              "tz": "022659045",
-              "name": "עדי שטייניץ",
-              "unit": "18000",
-              "usertype": "UNITSUPER",
-              "comp": "HHI",
-              "pass": "tazl0004",
-              "email": "haifaboy@gmail.com"
-        },
-        {
-              "id": 6,
-              "tz": "022659044",
-              "name": "אבי כהן",
-              "unit": "20000",
-              "usertype": "SUNITSUPER",
-              "comp": "HHI",
-              "pass": "tazl0005",
-              "email": "haifaboy@gmail.com"
-        }
-  ],
-  "mivnim": [
-        {
-              "comp": "HHI",
-              "id": 1,
-              "desc": "מעבדה 1",
-              "unit": "15000",
-              "type": "R"
-        },
-        {
-              "comp": "HHI",
-              "id": 2,
-              "desc": "מעבדה 2",
-              "unit": "18000",
-              "type": "R"
-        },
-        {
-              "comp": "HHI",
-              "id": 3,
-              "desc": "מעבדה 1",
-              "unit": "15000",
-              "type": "R"
-        },
-        {
-              "comp": "HHI",
-              "id": 3,
-              "desc": "מעבדה31",
-              "unit": "20000",
-              "type": "D"
-        },
-        {
-              "comp": "HHI",
-              "id": 4,
-              "desc": "חשמליה",
-              "unit": "20000",
-              "type": "R"
-        },
-        {
-              "comp": "HHI",
-              "id": 5,
-              "desc": "מתקן אכסון חומרים",
-              "unit": "15000",
-              "type": "D"
-        }
-  ] 
+{
+      "users": [
+            {
+                  "id": 1,
+                  "tz": "022659049",
+                  "name": "אבי כהן",
+                  "unit": "10000",
+                  "usertype": "SU",
+                  "comp": "HHI",
+                  "pass": "tazl0000",
+                  "email": "haifaboy@gmail.com"
+            },
+            {
+                  "id": 2,
+                  "tz": "022659048",
+                  "name": "שלום אסייג",
+                  "unit": "10000",
+                  "usertype": "SAFTYDEP",
+                  "comp": "HHI",
+                  "pass": "tazl0001",
+                  "email": "haifaboy@gmail.com"
+            },
+            {
+                  "id": 3,
+                  "tz": "022659047",
+                  "name": "ירון שמואל",
+                  "unit": "10000",
+                  "usertype": "SAFTYDEP",
+                  "comp": "HHI",
+                  "pass": "tazl0002",
+                  "email": "haifaboy@gmail.com"
+            },
+            {
+                  "id": 4,
+                  "tz": "022659046",
+                  "name": "ישראל רבינוביץ",
+                  "unit": "15000",
+                  "usertype": "UNITSUPER",
+                  "comp": "HHI",
+                  "pass": "tazl0003",
+                  "email": "haifaboy@gmail.com"
+            },
+            {
+                  "id": 5,
+                  "tz": "022659045",
+                  "name": "עדי שטייניץ",
+                  "unit": "18000",
+                  "usertype": "UNITSUPER",
+                  "comp": "HHI",
+                  "pass": "tazl0004",
+                  "email": "haifaboy@gmail.com"
+            },
+            {
+                  "id": 6,
+                  "tz": "022659044",
+                  "name": "אבי כהן",
+                  "unit": "20000",
+                  "usertype": "SUNITSUPER",
+                  "comp": "HHI",
+                  "pass": "tazl0005",
+                  "email": "haifaboy@gmail.com"
+            }
+      ],
+      "mivnim": [
+            {
+                  "comp": "HHI",
+                  "id": 1,
+                  "desc": "מעבדה 1",
+                  "unit": "15000",
+                  "type": "R"
+            },
+            {
+                  "comp": "HHI",
+                  "id": 2,
+                  "desc": "מעבדה 2",
+                  "unit": "18000",
+                  "type": "R"
+            },
+            {
+                  "comp": "HHI",
+                  "id": 3,
+                  "desc": "מעבדה 1",
+                  "unit": "15000",
+                  "type": "R"
+            },
+            {
+                  "comp": "HHI",
+                  "id": 3,
+                  "desc": "מעבדה31",
+                  "unit": "20000",
+                  "type": "D"
+            },
+            {
+                  "comp": "HHI",
+                  "id": 4,
+                  "desc": "חשמליה",
+                  "unit": "20000",
+                  "type": "R"
+            },
+            {
+                  "comp": "HHI",
+                  "id": 5,
+                  "desc": "מתקן אכסון חומרים",
+                  "unit": "15000",
+                  "type": "D"
+            }
+      ],
+      "tables": [
+            {
+                  "comp": "HHI",
+                  "id": 1,
+                  "name": "משתמשים",
+                  "desc": "טבלת משתמשי המערכת"
+            },
+            {
+                  "comp": "HHI",
+                  "id": 2,
+                  "name": "מבנים",
+                  "desc": "מבני המפעל"
+            }
+      ]
 }
