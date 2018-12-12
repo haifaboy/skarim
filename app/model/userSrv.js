@@ -1,6 +1,7 @@
 app.factory("user", function($q, $http) {
 
     var activeUser = getlocal() ;
+    var imgprepath = "app/pic/" ; 
 
     
    function User(plainUser) {
@@ -115,6 +116,23 @@ app.factory("user", function($q, $http) {
         return activeUser;
     }
 
+    function getcomimg ()
+    {
+
+        var imgpath  = ''
+
+        switch(activeUser.comp) {
+            case "HHI":
+            imgpath = imgprepath + activeUser.comp+ '.png'
+              break;
+            default:
+             
+          }
+
+        return imgpath  ;   
+
+    }
+
     function isVisibleMenuItem ( menuItem )
     {
 
@@ -160,6 +178,7 @@ app.factory("user", function($q, $http) {
         isLoggedIn: isLoggedIn,
         logout: logout,
         getActiveUser: getActiveUser,
-        isVisibleMenuItem: isVisibleMenuItem 
+        isVisibleMenuItem: isVisibleMenuItem ,
+        getcomimg : getcomimg
     }
 })

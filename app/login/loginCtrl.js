@@ -1,4 +1,4 @@
-app.controller("loginCtrl", function($q ,$scope, $location, user ) {
+app.controller("loginCtrl", function($q ,$scope, $location, user , mivne) {
     
    
     $scope.invalidLogin = false;
@@ -12,6 +12,10 @@ app.controller("loginCtrl", function($q ,$scope, $location, user ) {
 
         user.login($scope.tz, $scope.pwd).then(function() {
             // success login
+            mivne.getActiveMivnim();
+
+            alert( mivne.getNumOfMivnim());
+
            $location.path("/")
         }, function(error) {
             // failed login

@@ -14,17 +14,22 @@ app.factory("mivne", function($q, $http, user) {
 
     function getActiveMivnim() {
         var async = $q.defer();
+
+        alert(1) ; 
           
         if (wasEverLoaded) {
             async.resolve(mivnim);
         } else {
+
+            var comp = user.getActiveUser().comp ;
             
-            var getMivnimURL = "https://my-json-server.typicode.com/haifaboy/skarim/mivnim" ;
+            var getMivnimURL = "https://my-json-server.typicode.com/haifaboy/skarim/mivnim/?comp=" + comp ;
             
             $http.get(getMivnimURL).then(function(response) {
-                for (var i = 0; i < response.data.length; i++) {
+
+               for (var i = 0; i < response.data.length; i++) {
                     var mivne = new Mivne(response.data[i]);
-                    mivnim.push(recipe);
+                    mivnim.push(mivne);
                 }
                 wasEverLoaded = true;
                 async.resolve(mivnim);
@@ -62,6 +67,20 @@ app.factory("mivne", function($q, $http, user) {
        return nextid ;
     }
 
+    function getNumOfMivnim() {
+
+         return mivnim.length ; 
+
+
+    }
+
+    function getMivnim() {
+
+          return mivnim ; 
+
+
+    }
+
     
 
     function createMivne( name, desc, unit, type) {
@@ -80,6 +99,8 @@ app.factory("mivne", function($q, $http, user) {
 
     return {
              getActiveMivnim: getActiveMivnim ,
-             createMivne: createMivne
+             createMivne: createMivne,
+             getNumOfMivnim: getNumOfMivnim,
+             getMivnim : getMivnim
     }
 })
