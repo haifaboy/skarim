@@ -12,11 +12,15 @@ app.controller("loginCtrl", function($q ,$scope, $location, user , mivne) {
 
         user.login($scope.tz, $scope.pwd).then(function() {
             // success login
-            mivne.getActiveMivnim();
+            mivne.getActiveMivnim().then( function() {
+  
+                $location.path("/")
+             
+            }, function(error) {
+                               
+            });
 
-            alert( mivne.getNumOfMivnim());
-
-           $location.path("/")
+           
         }, function(error) {
             // failed login
             $scope.invalidLogin = true;

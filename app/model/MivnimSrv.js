@@ -1,32 +1,31 @@
 app.factory("mivne", function($q, $http, user) {
 
-    var mivnim = {};
-    var wasEverLoaded = {};
+    var mivnim = [];
+    var wasEverLoaded = false;
 
-    function Mivne(plainRecipe) {
-        this.id = plainRecipe.id;
-        this.name = plainRecipe.name;
-        this.desc = plainRecipe.desc;
-        this.unit = plainRecipe.unit;
-        this.type = plainRecipe.type;
+    function Mivne(Mivnedet) {
+        this.id = Mivnedet.id;
+        this.name = Mivnedet.name;
+        this.desc = Mivnedet.desc;
+        this.unit = Mivnedet.unit;
+        this.type = Mivnedet.type;
        
     }
 
     function getActiveMivnim() {
         var async = $q.defer();
 
-        alert(1) ; 
-          
         if (wasEverLoaded) {
             async.resolve(mivnim);
         } else {
 
             var comp = user.getActiveUser().comp ;
-            
+
+                       
             var getMivnimURL = "https://my-json-server.typicode.com/haifaboy/skarim/mivnim/?comp=" + comp ;
             
             $http.get(getMivnimURL).then(function(response) {
-
+ 
                for (var i = 0; i < response.data.length; i++) {
                     var mivne = new Mivne(response.data[i]);
                     mivnim.push(mivne);

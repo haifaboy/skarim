@@ -8,6 +8,8 @@ app.controller("navbarCtrl", function($scope, user, $location) {
            $location.path("/")  } 
 
    }
+
+   
    
     $scope.isUserLoggedIn = function() {
         
@@ -25,9 +27,12 @@ app.controller("navbarCtrl", function($scope, user, $location) {
         $location.path("/");
     }
 
+
+
     
     $scope.username =  user.isLoggedIn() ? user.getActiveUser().name : '' ; 
     $scope.comp = user.isLoggedIn() ? user.getActiveUser().comp : '' ; 
-    $scope.imgpath = user.getcomimg() ;
+    $scope.imgpath = user.isLoggedIn() ? user.getcomimg() : '' ;
+    $scope.compsite = user.isLoggedIn() ? user.getcompsite() : '';  
 
 });

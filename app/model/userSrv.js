@@ -82,19 +82,18 @@ app.factory("user", function($q, $http) {
        
             $http.get(loginURL).then(function(response) {
                 if (response.data.length > 0) {
-                    // success login
+                   
                 
                 activeUser = new User(response.data[0]);
                 setlocal(response.data[0]) ;
-      
                 async.resolve(activeUser);
                 
 
                 } else {
-                    // invalid email or password
+                  
                    
                     activeUser =  null ;
-                    async.reject("invalid email or password")
+                    async.reject("תעודת זהות או סיסמא שגויה")
                 }
             }, function(error) {
                 async.reject(error);
@@ -145,7 +144,7 @@ app.factory("user", function($q, $http) {
 
         switch(activeUser.comp) {
             case "HHI":
-            siteurl = 'www.iec.co.il'
+            siteurl = 'http://www.iec.co.il'
               break;
             default:
              
