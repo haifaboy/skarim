@@ -1,38 +1,33 @@
-app.factory("recipes", function($q, $http, user) {
+app.factory("mivne", function($q, $http, user) {
 
-    var recipes = {};
+    var mivnim = {};
     var wasEverLoaded = {};
 
-    function Recipe(plainRecipe) {
+    function Mivne(plainRecipe) {
         this.id = plainRecipe.id;
         this.name = plainRecipe.name;
-        this.description = plainRecipe.description;
-        this.ingredients = plainRecipe.ingredients;
-        this.steps = plainRecipe.steps;
-        this.imgUrl = plainRecipe.imgUrl;
-        this.userId = plainRecipe.userId;
+        this.desc = plainRecipe.desc;
+        this.unit = plainRecipe.unit;
+        this.type = plainRecipe.type;
+       
     }
 
-    function getActiveUserRecipes() {
+    function getActiveMivnim() {
         var async = $q.defer();
-
-        var userId = user.getActiveUser().id;
-
-        // This is a hack since we don't really have a persistant server.
-        // So I want to get all recipes only once.
-        if (wasEverLoaded[userId]) {
-            async.resolve(recipes[userId]);
+          
+        if (wasEverLoaded) {
+            async.resolve(mivnim);
         } else {
-            recipes[userId] = [];
-            var getRecipesURL = "http://my-json-server.typicode.com/nirch/recipe-book-v3/recipes?userId=" + userId;
             
-            $http.get(getRecipesURL).then(function(response) {
+            var getMivnimURL = "https://my-json-server.typicode.com/haifaboy/skarim/mivnim" ;
+            
+            $http.get(getMivnimURL).then(function(response) {
                 for (var i = 0; i < response.data.length; i++) {
-                    var recipe = new Recipe(response.data[i]);
-                    recipes[userId].push(recipe);
+                    var mivne = new Mivne(response.data[i]);
+                    mivnim.push(recipe);
                 }
-                wasEverLoaded[userId] = true;
-                async.resolve(recipes[userId]);
+                wasEverLoaded = true;
+                async.resolve(mivnim);
             }, function(error) {
                 async.reject(error);
             });
@@ -41,28 +36,50 @@ app.factory("recipes", function($q, $http, user) {
         return async.promise;
     }
 
+    function getNextID() {
 
-    function createRecipe(name, description, ingredients, steps, imgUrl) {
+       var nextid ;
+
+       if ( mivnim.length =  0 )  {
+
+        nextid  = 1 ; 
+
+       } else {
+
+                nextid = mivnim[0].id ;
+                
+                for ( var i = 0 ; i < mivnim.length ; i++) {
+
+                    nextid < mivnim[i].id ?  nextid = mivnim[i].id : nextid = nextid ; 
+              
+                }
+
+                ++nextid ;
+
+
+       }
+       
+       return nextid ;
+    }
+
+    
+
+    function createMivne( name, desc, unit, type) {
         var async = $q.defer();
 
-        var userId = user.getActiveUser().id;
+        id = getNextID() ; 
 
-        var newRecipe = new Recipe({id:-1, name: name, description: description,
-            ingredients: ingredients, steps: steps, imgUrl: imgUrl, 
-            userId: userId});
+        var newMivne = new Mivne (id , name, desc, unit, type );
 
-        // if working with real server:
-        //$http.post("http://my-json-server.typicode.com/nirch/recipe-book-v3/recipes", newRecipe).then.....
-
-        recipes[userId].push(newRecipe);
-        async.resolve(newRecipe);
+        mivnim.push(newMivne);
+        async.resolve(newMivne);
 
         return async.promise;
     }
 
 
     return {
-        getActiveUserRecipes: getActiveUserRecipes,
-        createRecipe: createRecipe
+             getActiveMivnim: getActiveMivnim ,
+             createMivne: createMivne
     }
 })
