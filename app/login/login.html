@@ -1,6 +1,22 @@
-<div class="container login ">
-    <h1>כניסה למערכת סקרי בטיחות</h1>
-    <div class="alert alert-danger" role="alert" ng-show="invalidLogin">
+<div class="jumbotron text-center" >
+    <div class="media">
+         <div class="media-left">
+             <img ng-src="app\pics\safety.png" class="media-object" style="width:100px">
+         </div>
+         <div class="media-body">
+           <h1>מפגעית</h1>
+           <h1>מערכת לניהול סקרי בטיחות</h1>
+         </div>
+     </div> 
+      
+ </div>
+ <div class= "media  medialoginimg" >
+    <img class="media-object" id= "imglogin" ng-src="app\pics\login.jpg" alt="Avatar" ng-click="showlogin()" >
+ </div> 
+ 
+<div class="container login" ng-show = "showform()">
+    
+  <div class="alert alert-danger" role="alert" ng-show="invalidLogin">
         שם משתמש או סיסמא לא נכונים
     </div>
     <form>
@@ -12,6 +28,14 @@
             <label for="pwd">סיסמא : </label>
             <input type="password" class="form-control" id="pwd" ng-model="pwd">
         </div>
-        <button type="button" class="btn btn-success btn-block" ng-click="login()">כנס</button>
+        <div>
+            <button type="button" class="btn btn-success" ng-click="login()">כנס</button>
+            <label>
+               <input type="checkbox"  name="remember" id = "remember" ng-model= "remember" ng-change ="rememverMy()" > זכור אותי
+            </label>
+        </div>  
+        <div class="container" id = "forgor" >
+            <span class="psw"><a href="mailto:haifaboy@gmail.com">שכחת סיסמא ?</a></span>
+        </div>
     </form>
 </div>

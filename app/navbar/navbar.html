@@ -1,6 +1,6 @@
    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
     <a class="navbar-brand" rel="home" href="#!/" title="מערכת סקרי בטיחות">
-      <img style="max-width:30px; margin-top: -7px;" src="app/pics/safty.png">
+      <img style="max-width:30px; margin-top: -7px;" src="app/pics/safety.png">
     </a>
    
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -13,17 +13,16 @@
                 <a class="nav-link" href="#!/skarim">סקרים</a>
             </li>
             <li class="nav-item" ng-show="isUserLoggedIAndVisble('rep')">
-                <a class="nav-link" href="#!/newseker">דוחות</a>
+                <a class="nav-link" href="#!/reports">דוחות</a>
             </li>
 	         <li class="nav-item" ng-show="isUserLoggedIAndVisble('system')">
-                <a class="nav-link" href="#!/newseker">מערכת</a>
+                <a class="nav-link" href="#!/system">מערכת</a>
             </li>
                    
         </ul>
 
-        <h5 class="navbar-text pull-left" ng-show ="isUserLoggedIn()" >{{username}}</h5> 
-
-                
+       
+           
         <ul class="navbar-nav"  id = "secnav">
             <li class="nav-item" ng-hide="isUserLoggedIn()">
                 <a class="nav-link" href="#!/login">Login</a>
@@ -36,6 +35,7 @@
     </div>
     
 </nav> 
+<h5 class="navbar-text pull-left" ng-show ="isUserLoggedIn()" >{{username}}</h5> 
 
 
 

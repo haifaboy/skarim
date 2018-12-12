@@ -1,14 +1,19 @@
 body {
     direction: rtl;
     text-align: right;
+    background-image:  linear-gradient(to bottom right, lightblue , Gainsboro ); 
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 100vh;
 } 
 
+.jumbotron {
+
+    background: transparent;
+
+}    
 
 
-.recipe > img {
-    object-fit: cover;
-    height: 300px;
-}
 
 .collapsibleNavbar {
 
@@ -25,10 +30,9 @@ body {
       
       }
 
-      .login {
+    .login {
         width: 550px;
-        text-align: center ;
-        margin: 0 auto;
+       
     }
 
     h5 {
@@ -37,20 +41,95 @@ body {
         
       }
 
+   
+    h1 {
+
+             text-align: center ;
+
+    }
+
+    
+
+  }
+
+  .head {
+
+              padding-top: 10px;
 
   }
 
   h5 {
 
-    color: white ;
+    color: black ;
     margin-bottom: 0px;
-    width: 70%;
-    position: absolute ;
+    width: 100%;
+    align-self: center ;
     text-align: center;
     visibility: visible ; 
 
 
 }  
+
+#imglogin {
+    
+    width: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px ;
+    
+  }
+
+.medialoginimg {
+    justify-content: center;
+  }
+
+ .media h1 {
+
+   text-align: right ;
+   padding-right: 10px;
+
+  }
+
+ 
+.btn-block {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+}
+  
+button:hover {
+    opacity: 0.8;
+}
+
+/* The "Forgot password" text */
+span.psw {
+    float: right;
+    padding-top: 16px;
+    font-weight: bold;
+    
+}
+
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
+}
+
+#forgor {
+
+     padding-left: 0px;
+
+}
+
 
   
     
