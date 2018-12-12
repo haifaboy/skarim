@@ -82,10 +82,10 @@ body {
     justify-content: center;
   }
 
- .media h1 {
+ h1 {
 
    text-align: right ;
-   padding-right: 10px;
+  
 
   }
 
@@ -129,6 +129,13 @@ span.psw {
      padding-left: 0px;
 
 }
+
+.swal-modal {
+    background-color: rgb(165, 197, 226);
+    border: 3px solid white;
+    font-weight: bold;
+  }
+  
 
 
   

@@ -1,4 +1,4 @@
-app.controller("loginCtrl", function($q ,$scope, $location, user ) {
+app.controller("loginCtrl", function($scope, $location, user) {
     
    
     $scope.invalidLogin = false;
@@ -64,35 +64,7 @@ app.controller("loginCtrl", function($q ,$scope, $location, user ) {
   
  }  
 
- 
-
- $scope.checkdigit = function ()
- {
-    
-    var async = $q.defer();
-
-    var isvalid = false  ; 
-
-      isvalid = !isNaN($scope.tz)  &&  $scope.tz < 1000000000 ; 
-
-     
-      if  ( !isvalid  ) { 
-        
-        swal({
-            text: "הכנס רק ספרות - עד 9 ספרות" ,
-            icon: "warning" , 
-            button: {
-                text: "סגור",
-              } } )
-          
-          $scope.tz = "" ;
-         
-        } ;
-
-      return isvalid ;
- } 
-
-$scope.getRemeber()
+ $scope.getRemeber()
 
     
 

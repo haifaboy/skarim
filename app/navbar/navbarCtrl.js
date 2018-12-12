@@ -1,9 +1,16 @@
 
 app.controller("navbarCtrl", function($scope, user, $location) {
     
-       
-    
+    $scope.gohome = function() {
+      
+        if ( user.isLoggedIn() ) {
+            
+           $location.path("/")  } 
+
+   }
+   
     $scope.isUserLoggedIn = function() {
+        
         return user.isLoggedIn();
     }
 
@@ -18,6 +25,6 @@ app.controller("navbarCtrl", function($scope, user, $location) {
         $location.path("/");
     }
 
-    $scope.username =  user.isLoggedIn() ? user.getActiveUser().name : null ; 
+    $scope.username =  user.isLoggedIn() ? user.getActiveUser().name : '' ; 
 
 });
