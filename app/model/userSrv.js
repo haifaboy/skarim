@@ -89,8 +89,9 @@ app.factory("user", function($q, $http) {
                 
                 activeUser = new User(response.data[0]);
                 setlocal(response.data[0]) ;
+                user.getallusers() ;
                 async.resolve(activeUser);
-                getallusers() ;
+               
               
                 } else {
                   
