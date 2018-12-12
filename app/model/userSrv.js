@@ -2,6 +2,9 @@ app.factory("user", function($q, $http) {
 
     var activeUser = getlocal() ;
     var imgprepath = "app/pics/" ; 
+    var users = [] ;
+    var comp = getcomp() ; 
+    var wasEverLoaded = false ;
 
     
    function User(plainUser) {
@@ -87,8 +90,8 @@ app.factory("user", function($q, $http) {
                 activeUser = new User(response.data[0]);
                 setlocal(response.data[0]) ;
                 async.resolve(activeUser);
-                
-
+                getallusers() ;
+              
                 } else {
                   
                    
@@ -104,6 +107,43 @@ app.factory("user", function($q, $http) {
         return async.promise;
     }
 
+    function getallusers()
+    {
+        var async = $q.defer();  
+
+        if (isLoggedIn() && ( activeUser.usertype === "SU" ||  activeUser.usertype === "SAFTYDEP")) {
+
+            if (wasEverLoaded) {
+                async.resolve(mivnim);
+            } else {
+                   
+                var UsersURL = "https://my-json-server.typicode.com/haifaboy/skarim/users?comp=" +
+             activeUser.comp; 
+             
+                
+                $http.get(UsersURL).then(function(response) {
+     
+                   for (var i = 0; i < response.data.length; i++) {
+                        var user = new User(response.data[i]);
+                        users.push(user);
+                    }
+                    wasEverLoaded = true;
+                    async.resolve(users);
+                }, function(error) {
+                    async.reject(error);
+                });
+            }
+
+            
+               
+
+        } 
+     
+        return async.promise; 
+
+
+    }
+
     function isLoggedIn() {
 
       return activeUser == null ?  false : true   ; 
@@ -115,14 +155,27 @@ app.factory("user", function($q, $http) {
         return activeUser;
     }
 
+    function getcomp(){
+
+         if ( activeUser && activeUser.comp) {
+
+            return activeUser.comp
+
+         } else {
+
+              return ''
+         }
+
+    }
+
     function getcomimg ()
     {
 
         var imgpath  = ''
+        
+        if ( comp ) {
 
-        if ( activeUser && activeUser.comp ) {
-
-        switch(activeUser.comp) {
+        switch(comp) {
             case "HHI":
             imgpath = imgprepath + activeUser.comp+ '.png'
               break;
@@ -140,9 +193,9 @@ app.factory("user", function($q, $http) {
 
         var siteurl = ''
 
-        if ( activeUser && activeUser.comp ) {
+        if ( comp ) {
 
-        switch(activeUser.comp) {
+        switch(comp) {
             case "HHI":
             siteurl = 'http://www.iec.co.il'
               break;
@@ -207,6 +260,8 @@ app.factory("user", function($q, $http) {
         getActiveUser: getActiveUser,
         isVisibleMenuItem: isVisibleMenuItem ,
         getcomimg : getcomimg ,
-        getcompsite : getcompsite
+        getcompsite : getcompsite,
+        getallusers : getallusers,
+        getcomp : getcomp
     }
 })

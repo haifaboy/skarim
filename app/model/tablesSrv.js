@@ -2,6 +2,7 @@ app.factory("tables", function($q, $http, user) {
 
     var tables = {};
     var wasEverLoaded = {};
+    var comp = user.getcomp();
 
     function Table(tabledet) {
         this.com = tabledet.comp
@@ -20,14 +21,14 @@ app.factory("tables", function($q, $http, user) {
             async.resolve(tables);
         } else {
 
-            var comp = user.getActiveUser().comp ;
+            ;
             
             var getTablesURL = "https://my-json-server.typicode.com/haifaboy/skarim/tables/?comp=" + comp ;
             
             $http.get(getTablesURL).then(function(response) {
 
                alert(response.data.length);
-                 
+
                for (var i = 0; i < response.data.length; i++) {
                     var table = new Table(response.data[i]);
                     tables.push(table);
@@ -84,12 +85,11 @@ app.factory("tables", function($q, $http, user) {
 
     
 
-    function createTable( comp, id , name, desc) {
+    function createTable(  name, desc) {
         var async = $q.defer();
 
-        id = getNextID() ; 
-
-        var newTable = new Table (comp, id , name, desc );
+        var id = getNextID() ; 
+        var newTable = new Table ( comp , id , name, desc );
 
         tables.push(newTable);
         async.resolve(newTable);

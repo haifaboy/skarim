@@ -1,13 +1,12 @@
-app.controller("systemrCtrl", function($scope, $location, user,tables) {
+app.controller("systemrCtrl", function($scope, $location, user,mivnim,tables ) {
 
-
-    tables.getActiveTables()  
+  
+     
+    tables.getActiveTables()  ;
 
     $scope.tables = tables.getTables() ;
 
     alert(tables.length);
   
-
-   
  
 });

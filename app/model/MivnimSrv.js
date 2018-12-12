@@ -2,10 +2,12 @@ app.factory("mivne", function($q, $http, user) {
 
     var mivnim = [];
     var wasEverLoaded = false;
+    var comp =  user.getcomp()
 
     function Mivne(Mivnedet) {
+ 
+        this.comp = Mivnedet.comp; 
         this.id = Mivnedet.id;
-        this.name = Mivnedet.name;
         this.desc = Mivnedet.desc;
         this.unit = Mivnedet.unit;
         this.type = Mivnedet.type;
@@ -19,9 +21,7 @@ app.factory("mivne", function($q, $http, user) {
             async.resolve(mivnim);
         } else {
 
-            var comp = user.getActiveUser().comp ;
-
-                       
+                            
             var getMivnimURL = "https://my-json-server.typicode.com/haifaboy/skarim/mivnim/?comp=" + comp ;
             
             $http.get(getMivnimURL).then(function(response) {
@@ -82,12 +82,13 @@ app.factory("mivne", function($q, $http, user) {
 
     
 
-    function createMivne( name, desc, unit, type) {
+    function createMivne( desc, unit, type) {
         var async = $q.defer();
 
-        id = getNextID() ; 
+        var id = getNextID() ; 
+         
 
-        var newMivne = new Mivne (id , name, desc, unit, type );
+        var newMivne = new Mivne ( comp  ,  id ,  desc, unit, type );
 
         mivnim.push(newMivne);
         async.resolve(newMivne);
