@@ -5,10 +5,26 @@ app.controller("loginCtrl", function($q ,$scope, $location, user , mivne) {
     $scope.remember = false ;
     $scope.showloginform = false ;
 
+    $scope.getRemeber = function () {
+
    
+        if ( localStorage.RememberMe === 'yes' ) {
+            
+            $scope.tz = localStorage.Name ; 
+    
+            if  (localStorage.RememberMe === 'yes' )  {
+    
+                $scope.remember = true ; 
+            }
+        }
+      
+     }  
+    
 
     $scope.login = function() {
         $scope.invalidLogin = false;
+
+        if ( $scope.remember) { $scope.rememverMy() } ;
 
         user.login($scope.tz, $scope.pwd).then(function() {
             // success login
@@ -40,7 +56,7 @@ app.controller("loginCtrl", function($q ,$scope, $location, user , mivne) {
  
     $scope.rememverMy = function  () {
   
-        
+              
         localStorage.removeItem('Name');
         localStorage.removeItem('RememberMe');
           
@@ -57,21 +73,7 @@ app.controller("loginCtrl", function($q ,$scope, $location, user , mivne) {
 
  }  
 
- $scope.getRemeber = function () {
-
-   
-    if ( localStorage.RememberMe === 'yes' ) {
-        
-        $scope.tz = localStorage.Name ; 
-
-        if  (localStorage.RememberMe === 'yes' )  {
-
-            $scope.remember = true ; 
-        }
-    }
-  
- }  
-
+ 
  
 
  $scope.checkdigit = function ()
@@ -101,9 +103,6 @@ app.controller("loginCtrl", function($q ,$scope, $location, user , mivne) {
  } 
 
 $scope.getRemeber()
-
-    
-
-    
+   
 
 });
