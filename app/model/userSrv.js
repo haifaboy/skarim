@@ -114,7 +114,7 @@ app.factory("user", function($q, $http) {
         if (isLoggedIn() && ( activeUser.usertype === "SU" ||  activeUser.usertype === "SAFTYDEP")) {
 
             if (wasEverLoaded) {
-                async.resolve(mivnim);
+                async.resolve(users);
             } else {
                    
                 var UsersURL = "https://my-json-server.typicode.com/haifaboy/skarim/users?comp=" +
