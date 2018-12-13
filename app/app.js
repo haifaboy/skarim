@@ -23,11 +23,8 @@ app.config(function($routeProvider) {
     }).when("/system" , {
         templateUrl: "app/system/system.html",
         controller: "systemrCtrl"
-    }).when("/user" , {
-        templateUrl: "app/system/users.html/:id",
-        controller: "usersrCtrl"
-    }).when("/mivnim" , {
-        templateUrl: "app/system/mivnim.html/:id",
-        controller: "mivnimCtrl"
+    }).when("/tablepage" , {
+        templateUrl: "app/system/tablepage.html/:id",
+        controller: "tablePagerCtrl"
     })
 })

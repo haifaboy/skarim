@@ -25,8 +25,11 @@ app.controller("systemrCtrl", function($scope, $location, user,mivne,tables  ) {
     }
 
     $scope.opentable = function(table) {
+
+
+        $location.path("/tablepage/" +table.id ); 
   
-        $location.path("/users/" + table.id);  
+      
     }   
 
   
