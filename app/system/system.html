@@ -10,16 +10,16 @@
         </tr>
       </thead>
       <tbody >
-          <tr  ng-repeat="table in tables" contenteditable=setcontenteditable(table))>
-              <td>{{table.id}}</td> 
-              <td>{{table.name }}</td>
-              <td>{{table.desc}}</td>
+          <tr  ng-repeat="table in tables"   ng-dblclick="opentable(table)">
+              <td contenteditable = {{setcontenteditable(table)}} >{{table.id}} </td> 
+              <td contenteditable = {{setcontenteditable(table)}} >{{table.name }}</td>
+              <td contenteditable = {{setcontenteditable(table)}} >{{table.desc}}</td>
           </tr>      
        
       </tbody>
       
   </table>
   <button type="button" class="btn btn-success" ng-click="newTable()">חדש</button>
-  <button type="button" class="btn btn-success" ng-click="saveTable()">שמור</button>
+  
 </div>
 

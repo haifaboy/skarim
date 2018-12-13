@@ -1,21 +1,29 @@
 app.factory("tables", function($q, $http, user) {
 
-    var tables =[] ;
-    var wasEverLoaded = false ;
+    var tables = [] ;
+    var wasEverLoaded = ! ( tables.length ===  0 )  ;
     var comp = user.getcomp();
 
-    function Table(tabledet) {
+    function Table(tabledet,flag) {
         this.comp = tabledet.comp
         this.id = tabledet.id;
         this.name = tabledet.name;
         this.desc = tabledet.desc;
+        this.json = flag ;
+         
+    }
+    function TableA(comp , id , name, desc  ,flag) {
+        this.comp = comp
+        this.id = id;
+        this.name = name;
+        this.desc = desc;
+        this.json = flag ;
          
     }
 
     function getActiveTables() {
         var async = $q.defer();
-
-                 
+             
         if (wasEverLoaded) {
             async.resolve(tables);
         } else {
@@ -25,7 +33,7 @@ app.factory("tables", function($q, $http, user) {
             $http.get(getTablesURL).then(function(response) {
 
                     for (var i = 0; i < response.data.length; i++) {
-                    var table = new Table(response.data[i]);
+                    var table = new Table(response.data[i],1);
                     tables.push(table);
                 }
                 wasEverLoaded = true;
@@ -82,16 +90,14 @@ app.factory("tables", function($q, $http, user) {
        
 
     function createTable(  name, desc) {
-        var async = $q.defer();
+        
 
         var id = getNextID() ; 
 
-        var newTable = new Table ( comp , id , name, desc );
+         var newTable = new TableA ( comp , id , name, desc , 0 );
 
         tables.push(newTable);
-        async.resolve(newTable);
-
-        return async.promise;
+       
     }
 
 
