@@ -4,7 +4,7 @@
  <table class="table table-success" >
       <thead>
         <tr >
-          <th style = "border : 2px solid black">No.</th>
+          <th>No.</th>
           <th>שם הטבלה</th>
           <th>תאור</th>
         </tr>
@@ -18,8 +18,10 @@
        
       </tbody>
       
+      
   </table>
-  <button type="button" class="btn btn-success" ng-click="newTable()">חדש</button>
+  <p>* להיכנס לפרטי הטבלה לחץ  Double Click על השורה המבוקשת </p>
+  <button type="button" class="btn btn-success" ng-click="newTable()" ng-show="showitem('systemnew')">חדש</button>
   
 </div>
 

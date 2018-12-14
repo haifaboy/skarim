@@ -1,4 +1,4 @@
-app.controller("systemrCtrl", function($scope, $location, user,mivne,tables  ) {
+app.controller("systemrCtrl", function($scope, $location, user,tables  ) {
 
     if   ( ! user.isLoggedIn() ) {   $location.path("/"); } 
 
@@ -16,9 +16,24 @@ app.controller("systemrCtrl", function($scope, $location, user,mivne,tables  ) {
       
     }
 
+    $scope.showitem  = function(item) {
+
+       
+
+        switch(item) {
+            case 'systemnew':
+                  
+                    return user.isSuperUser() ? true : false ;
+            default:
+             
+          } 
+        
+
+    }
+
     $scope.setcontenteditable = function(intable){
 
-                   
+             
         return ( intable.id === $scope.tables[$scope.tables.length - 1].id && intable.json ===  0 ) ;
         
 
@@ -27,7 +42,7 @@ app.controller("systemrCtrl", function($scope, $location, user,mivne,tables  ) {
     $scope.opentable = function(table) {
 
 
-        $location.path("/tablepage/" +table.id ); 
+        $location.path("/tablepage/" +table.name ); 
   
       
     }   

@@ -28,15 +28,10 @@ app.controller("loginCtrl", function($q ,$scope, $location, user , mivne) {
 
         user.login($scope.tz, $scope.pwd).then(function() {
             // success login
-            mivne.getActiveMivnim().then( function() {
-  
-                $location.path("/")
-             
-            }, function(error) {
-                               
-            });
-
-           
+            user.getallusers();
+            mivne.getActiveMivnim();
+            $location.path("/");
+            
         }, function(error) {
             // failed login
             $scope.invalidLogin = true;

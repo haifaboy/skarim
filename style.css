@@ -148,12 +148,19 @@ span.psw {
 
   th , tr , td , thead , .table{
     border : 2px solid black ;
-   
+ 
   }
 
   tr {
 
-           height: 56px;
+           height: 30px;
+
+  }
+
+  th {
+
+   
+     text-align: center ;
 
   }
 

@@ -118,5 +118,102 @@
                   "name": "מבנים",
                   "desc": "מבני המפעל"
             }
-      ]
+      ],
+      "skarim": [  {
+
+                      "id" : 1 ,
+                      "comp": "HHI",
+                      "desc" : "סקר מבנה 1" ,
+                      "seker_date" : "2018-01-01" ,
+                      "mivneid" : 1 ,
+                      "userid"  : 2 ,
+                      "status"  : "open" 
+ 
+
+      } ,
+      {
+            "id" : 2 ,
+            "comp": "HHI",
+            "desc" : "סקר מבנה 2" ,
+            "seker_date" : "2018-01-02" ,
+            "mivneid" : 2 ,
+            "userid"  : 2 ,
+            "status"  : "open"  
+
+
+      },
+      {
+
+            "id" : 3 ,
+            "comp": "HHI",
+            "desc" : "סקר מבנה 2" ,
+            "seker_date" : "2018-01-03" ,
+            "mivneid" : 3 ,
+            "userid"  : 3 ,
+            "status"  : "open"  
+
+      }
+
+
+],
+"skarimline": [
+             {    
+              "skarimid" : 1  ,
+               "lineid"  : 1 ,
+               "comp"    : "HHI",
+               "date"    : "2018-01-01" ,
+               "desc"    : "ברז שבור"  ,
+               "saverity" : "1"  ,
+               "palend_end_date" : "2018-01-14" ,
+               "end_date" :  ""    
+ 
+
+             },
+             {    
+                  "skarimid" : 1  ,
+                   "lineid"  : 2 ,
+                   "comp"    : "HHI",
+                   "date"    : "2018-01-01" ,
+                   "desc"    : "שמן על הרצפה"  ,
+                   "saverity" : "2"  ,
+                   "palend_end_date" : "2018-01-07" ,
+                   "end_date" :  ""    
+     
+    
+              },
+              {    
+                  "skarimid" : 1  ,
+                   "lineid"  : 3 ,
+                   "comp"    : "HHI",
+                   "date"    : "2018-01-01" ,
+                   "desc"    : "מטף חסר"  ,
+                   "saverity" : "3"  ,
+                   "palend_end_date" : "2018-01-01" ,
+                   "end_date" :  ""    
+     
+    
+                 },
+                 {    
+                  "skarimid" : 2  ,
+                   "lineid"  : 1 ,
+                   "comp"    : "HHI",
+                   "date"    : "2018-01-02" ,
+                   "desc"    : "שולחן שבור"  ,
+                   "saverity" : "1"  ,
+                   "palend_end_date" : "2018-01-14" ,
+                   "end_date" :  ""    
+                  },
+                  {    
+                        "skarimid" : 2  ,
+                         "lineid"  : 2 ,
+                         "comp"    : "HHI",
+                         "date"    : "2018-01-02" ,
+                         "desc"    : "חסר צינור"  ,
+                         "saverity" : "1"  ,
+                         "palend_end_date" : "2018-01-14" ,
+                         "end_date" :  ""    
+                  }
+]
+
 }
+

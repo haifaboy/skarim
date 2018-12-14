@@ -1,3 +1,21 @@
 <navbar-recipe></navbar-recipe>
-
-{{ID}}
+<div class="container">
+    <h2>{{id}}</h2>
+   <table class="table table-success" >
+        <thead>
+          <tr >
+            <th ng-repeat="tablehead in tableheads" ng-show = "showheader(tablehead)" >{{tablehead}}</th> 
+          </tr>
+        </thead>
+        <tbody >
+           <tr  ng-repeat="tableitem in tableitems" ng-dblclick="opentable(table)">
+                <td contenteditable = {{setcontenteditable(table)}} >{{1}} </td> 
+                <td contenteditable = {{setcontenteditable(table)}} >{{1}}</td>
+                <td contenteditable = {{setcontenteditable(table)}} >{{1}}</td>
+            </tr>      
+         
+        </tbody>
+     </table>
+</div>    
+<button type="button" class="btn btn-success" ng-click="newRow()" ng-show="showitem('tablepagenew'+id)">חדש</button>
+<button type="button" class="btn btn-success" ng-click="goback()">חזור</button>

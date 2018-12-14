@@ -5,9 +5,8 @@ app.factory("user", function($q, $http) {
     var users = [];
     var comp = getcomp() ; 
     var wasEverLoaded = false ;
-
     
-   function User(plainUser) {
+   function User(plainUser , flag) {
 
         this.id = plainUser.id;
         this.tz = plainUser.tz;
@@ -15,7 +14,7 @@ app.factory("user", function($q, $http) {
         this.unit = plainUser.unit;
         this.usertype = plainUser.usertype;
         this.comp = plainUser.comp;
-        this.pass = plainUser.pass;
+        if ( flag === 0 ) { this.pass = plainUser.pass; } else {this.pass = '' } ;  
         this.email = plainUser.email;
 
         
@@ -36,8 +35,13 @@ app.factory("user", function($q, $http) {
 
     }
 
+    function isSuperUser(){
 
-    function getlocal() {
+        return activeUser.usertype === "SU" ;
+
+    }
+
+        function getlocal() {
 
        
         if (localStorage.getItem ( "id" ) ) { 
@@ -86,9 +90,9 @@ app.factory("user", function($q, $http) {
             $http.get(loginURL).then(function(response) {
                 if (response.data.length > 0) {
                  
-                activeUser = new User(response.data[0]);
+                activeUser = new User(response.data[0],0);
                 setlocal(response.data[0]) ;
-                getallusers() ;
+               
                 async.resolve(activeUser);
                
               
@@ -111,7 +115,7 @@ app.factory("user", function($q, $http) {
     {
         var async = $q.defer();  
 
-        if (isLoggedIn() && ( activeUser.usertype === "SU" ||  activeUser.usertype === "SAFTYDEP")) {
+        if (isLoggedIn())  {
 
             if (wasEverLoaded) {
                 async.resolve(users);
@@ -123,19 +127,19 @@ app.factory("user", function($q, $http) {
                 
                 $http.get(UsersURL).then(function(response) {
      
+                   
                    for (var i = 0; i < response.data.length; i++) {
-                        var user = new User(response.data[i]);
+                        var user = new User(response.data[i],1);
                         users.push(user);
                     }
+                     
                     wasEverLoaded = true;
                     async.resolve(users);
                 }, function(error) {
                     async.reject(error);
                 });
             }
-
-            
-               
+         
 
         } 
      
@@ -143,6 +147,39 @@ app.factory("user", function($q, $http) {
 
 
     }
+
+    function getnumofusers()
+    {
+        getallusers().then(function() {
+           
+             
+            return users;
+            
+        }, function(error) {
+            
+        }) 
+        return users.length  ; 
+    }
+
+    function getusers(){
+         
+        var aa = [] ;
+        
+        aa = [1,2] ;
+
+        return aa ;
+
+       /* getallusers().then(function() {
+           
+             var aa = users
+             return this.aa ;
+            
+        }, function(error) {
+            
+        }) */
+       
+      
+    };
 
     function isLoggedIn() {
 
@@ -209,10 +246,6 @@ app.factory("user", function($q, $http) {
 
     }
 
-
-
-
-
     function isVisibleMenuItem ( menuItem )
     {
 
@@ -229,12 +262,8 @@ app.factory("user", function($q, $http) {
               break;
               case 'system' :
 
-               
-
-                visible  =  activeUser.usertype === "SU" ||  activeUser.usertype === "SAFTYDEP"  ; 
-
-
-            
+                  visible  =  activeUser.usertype === "SU" ||  activeUser.usertype === "SAFTYDEP"  ; 
+ 
             default:
               
           }
@@ -262,6 +291,9 @@ app.factory("user", function($q, $http) {
         getcomimg : getcomimg ,
         getcompsite : getcompsite,
         getallusers : getallusers,
-        getcomp : getcomp
+        getcomp : getcomp,
+        isSuperUser : isSuperUser,
+        getnumofusers : getnumofusers ,
+        getusers : getusers
     }
 })
