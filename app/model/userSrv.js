@@ -20,6 +20,63 @@ app.factory("user", function($q, $http) {
         
     }
 
+    function getNextId()
+    {
+
+      var nextid = 0 ;
+
+      for ( var i = 0 ;  i < users.length ; i++ ) {
+
+                    
+           if ( users[i].id > nextid ) { nextid = users[i].id }
+
+          }
+
+
+      return nextid + 1 ; 
+
+
+    }
+
+
+    function addUser(tz,name,unit,usertype,pass,email) {
+
+        var suser ;
+
+        suser.id  = getNextId() ;
+        suser.tz = tz;
+        suser.name = name;
+        suser.unit = unit;
+        suser.usertype = usertype;
+        suser.comp = activeuser.comp;
+        suser.pass = pass;
+        suser.email = email;
+
+        var newuser = new User(suser,1);
+        users.push(newuser) ;
+
+    }
+
+
+    function getUserDetails(id) {
+
+        var user = null ; 
+
+        for ( var i = 0 ;  i < users.length ; i++ ) {
+
+                    
+            if ( users[i].id === id )  { 
+                user = users[i] ;
+                i = users.length + 1 ; 
+ 
+           }
+
+        }
+
+        return user ; 
+
+    }
+
     function setlocal(plainUser) {
 
      
@@ -41,7 +98,16 @@ app.factory("user", function($q, $http) {
 
     }
 
-        function getlocal() {
+    function isSafety(){
+
+        return activeUser.usertype === "SAFTYDEP" ;
+
+    }
+
+
+
+
+    function getlocal() {
 
        
         if (localStorage.getItem ( "id" ) ) { 
@@ -163,11 +229,8 @@ app.factory("user", function($q, $http) {
 
     function getusers(){
          
-        var aa = [] ;
-        
-        aa = [1,2] ;
-
-        return aa ;
+       
+        return users ;
 
        /* getallusers().then(function() {
            
@@ -294,6 +357,9 @@ app.factory("user", function($q, $http) {
         getcomp : getcomp,
         isSuperUser : isSuperUser,
         getnumofusers : getnumofusers ,
-        getusers : getusers
+        getusers : getusers ,
+        isSafety : isSafety ,
+        addUser : addUser ,
+        getUserDetails : getUserDetails
     }
 })

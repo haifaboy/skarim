@@ -1,24 +1,20 @@
-app.controller("systemrCtrl", function($scope, $location, user,tables  ) {
+app.controller("systemrCtrl", function($scope, $location, user, tables  ) {
 
     if   ( ! user.isLoggedIn() ) {   $location.path("/"); } 
 
     tables.getActiveTables()  ;
    
-    $scope.tables = [] ;
-    $scope.tables = tables.getTables() ;
-
+    $scope.tables = tables.tables ;
+   
     $scope.newTable = function(){
 
       
         tables.createTable('','') ;
        
-        
       
     }
 
     $scope.showitem  = function(item) {
-
-       
 
         switch(item) {
             case 'systemnew':

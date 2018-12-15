@@ -1,1 +1,46 @@
 <navbar-recipe></navbar-recipe>
+<div class="container">
+  <h2>סקרים</h2>
+ <table class="table table-success" >
+      <thead>
+        <tr >
+
+
+                "id" : 1 ,
+                "comp": "HHI",
+                "desc" : "סקר מבנה 1" ,
+                "seker_date" : "2018-01-01" ,
+                "mivneid" : 1 ,
+                "userid"  : 2 ,
+                "status"  : "open" 
+
+          <th>מספר סקר</th>
+          <th>תאריך</th>
+          <th>יחידה</th>
+          <th>תאור</th>
+          <th>פותח הסקר</th>
+          <th>מבנה</th>
+          <th>סטטוס</th>
+        </tr>
+      </thead>
+      <tbody >
+          <tr  ng-repeat="seker in skarim"   ng-dblclick="opensekerline(seker.id)">
+              <td contenteditable = {{setcontenteditable(seker)}} >{{seker.id}} </td> 
+              <td contenteditable = {{setcontenteditable(seker)}} >{{seker.seker_date }}</td>
+              <td contenteditable = {{setcontenteditable(seker)}} >{{seker.unit}}</td>
+              <td contenteditable = {{setcontenteditable(seker)}} >{{seker.desc}} </td> 
+              <td contenteditable = {{setcontenteditable(seker)}} >{{getuserdetails(seker.id).name}}</td>
+              <td contenteditable = {{setcontenteditable(seker)}} >{{getMivneDetails(mivneid).desc}}</td>
+              <td contenteditable = {{setcontenteditable(seker)}} >{{seker.desc}}</td>
+              <td contenteditable = {{setcontenteditable(seker)}} >{{seker.status}}</td>
+          </tr>     
+       
+      </tbody>
+     
+  </table>
+  <p>* לחץ Double Click להיכנס לשורות הסקר </p>
+  <button type="button" class="btn btn-success" ng-click="newTable()" ng-show="showitem('sekernew')">חדש</button>
+  
+</div>
+
+

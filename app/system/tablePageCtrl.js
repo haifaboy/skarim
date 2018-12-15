@@ -1,5 +1,5 @@
 
-app.controller("tablePageCtrl", function($scope, $location,  $routeParams , user ,mivne ) {
+app.controller("tablePageCtrl", function($scope, $location,  $routeParams , user ,mivne  ) {
       
     if   ( ! user.isLoggedIn() ) {   $location.path("/"); } 
 

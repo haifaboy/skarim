@@ -79,27 +79,27 @@
             {
                   "comp": "HHI",
                   "id": 3,
-                  "desc": "מעבדה 1",
-                  "unit": "15000",
+                  "desc": "מעבדה 3",
+                  "unit": "20000",
                   "type": "R"
             },
             {
                   "comp": "HHI",
-                  "id": 3,
+                  "id": 4,
                   "desc": "מעבדה31",
                   "unit": "20000",
                   "type": "D"
             },
             {
                   "comp": "HHI",
-                  "id": 4,
+                  "id": 5,
                   "desc": "חשמליה",
                   "unit": "20000",
                   "type": "R"
             },
             {
                   "comp": "HHI",
-                  "id": 5,
+                  "id": 6,
                   "desc": "מתקן אכסון חומרים",
                   "unit": "15000",
                   "type": "D"
@@ -123,6 +123,7 @@
 
                       "id" : 1 ,
                       "comp": "HHI",
+                      "unit": "15000",
                       "desc" : "סקר מבנה 1" ,
                       "seker_date" : "2018-01-01" ,
                       "mivneid" : 1 ,
@@ -134,6 +135,7 @@
       {
             "id" : 2 ,
             "comp": "HHI",
+            "unit": "18000",
             "desc" : "סקר מבנה 2" ,
             "seker_date" : "2018-01-02" ,
             "mivneid" : 2 ,
@@ -146,6 +148,7 @@
 
             "id" : 3 ,
             "comp": "HHI",
+            "unit": "20000",
             "desc" : "סקר מבנה 2" ,
             "seker_date" : "2018-01-03" ,
             "mivneid" : 3 ,

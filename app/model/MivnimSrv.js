@@ -96,11 +96,34 @@ app.factory("mivne", function($q, $http, user) {
         return async.promise;
     }
 
+    function getMivneById(id){
+   
+        var mivne = null ;   
+
+        for ( var i = 0 ; i < mivnim.length ; i++) {
+
+            if ( id  === mivnim[i].id  ) {
+
+                mivne = mivnim[i].id
+                i = mivnim.length + 1 ;
+
+
+            }
+            
+      
+        }
+
+        return mivne ;
+
+
+    }
+
 
     return {
              getActiveMivnim: getActiveMivnim ,
              createMivne: createMivne,
              getNumOfMivnim: getNumOfMivnim,
-             getMivnim : getMivnim
+             getMivnim : getMivnim ,
+             getMivneById , getMivneById 
     }
 })

@@ -14,8 +14,8 @@ app.config(function($routeProvider) {
     }).when("/newseker" , {
         templateUrl: "app/newseker/newseker.html",
         controller: "newSekerrCtrl"
-    }).when("/sekerlines" , {
-        templateUrl: "app/skarlines/skarlines.html",
+    }).when("/sekerlines/:id" , {
+        templateUrl: "app/skarlines/skarlines.html/",
         controller: "sekerLinesrCtrl"
     }).when("/reports" , {
         templateUrl: "app/reports/reports.html",
