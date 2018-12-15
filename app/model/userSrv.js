@@ -319,26 +319,23 @@ app.factory("user", function($q, $http) {
 
     function getMivneSuperviser(unit)   {
 
-         var supervisor ;
+        var supervisor='' ;
 
-        for  ( i = 0 ; i < users.length ; i++) {
+        for  ( var i = 0 ; i < users.length ; i++) {
 
-             if ( users[i].unit === unit && user[i].usertype === "UNITSUPER" ) {
+            if ( users[i].unit === unit && users[i].usertype === "UNITSUPER" ) {
 
-                supervisor = user[i].name
+                supervisor = users[i].name
 
-             } 
+             }   
 
+        } 
 
-             return supervisor ; 
-
-
-
-
-        }
+        
 
 
-       
+        return supervisor ; 
+
     }
 
     function logout() {

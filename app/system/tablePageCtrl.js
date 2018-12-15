@@ -12,8 +12,10 @@ app.controller("tablePageCtrl", function($scope, $location,  $routeParams , user
 
     $scope.showitem  = function(item) {
 
+         
          switch(item) {
-            case 'tablepagenew1' , 'tablepagenew2' :
+            case 'tablepagenew-משתמשים' : 
+            case 'tablepagenew-מבנים' :
                 return user.isSuperUser() ? true : false ;
             default:
              
@@ -109,8 +111,9 @@ app.controller("tablePageCtrl", function($scope, $location,  $routeParams , user
         this.id = smivne.id;
         this.desc = smivne.desc;
         this.unit = smivne.unit;
-        this.type = smivne.type;
+        this.type = mivne.getMivneTypeDesc(smivne.type);
         this.super = user.getMivneSuperviser(smivne.unit) ;
+      
         this.json = smivne.json ;
      
 

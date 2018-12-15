@@ -115,6 +115,18 @@ app.factory("mivne", function($q, $http, user) {
 
         var desc ;
 
+        switch(mivnetype) {
+            case 'R':
+                desc = 'רגיל'
+              break;
+            case 'D':
+                desc = 'חם'
+              break;
+            default:
+            
+          }  
+
+          return desc ; 
         
 
         return desc ; 

@@ -17,35 +17,36 @@
             <input type="text" class="form-control form-control-sm col-5" placeholder="ערך" ng-model="searchText" >
         </div> 
     </form>
-    <table class="table table-success" >
-        <thead>
-            <tr >
-              <th ng-click="sortBy('id')"> סקר מספר <i ng-class="getSortingClass('id')"></i></th>  
-              <th ng-click="sortBy('seker_date')"> תאריך סקר <i ng-class="getSortingClass('seker_date')"></i></th> 
-              <th ng-click="sortBy('unit')"> יחידה <i ng-class="getSortingClass('unit')"></i></th> 
-              <th ng-click="sortBy('desc')"> תאור <i ng-class="getSortingClass('desc')"></i></th> 
-              <th ng-click="sortBy('userid')"> פותח הסקר <i ng-class="getSortingClass('userid')"></i></th> 
-              <th ng-click="sortBy('mivneid')"> מבנה <i ng-class="getSortingClass('mivneid')"></i></th> 
-              <th ng-click="sortBy('status')"> סקר מספר <i ng-class="getSortingClass('status')"></i></th> 
+    <div class="table-wrapper-scroll-y">
+        <table class="table table-bordered table-striped" >
+            <thead>
+                <tr >
+                <th ng-click="sortBy('id')"> סקר מספר <i ng-class="getSortingClass('id')"></i></th>  
+                <th ng-click="sortBy('seker_date')"> תאריך סקר <i ng-class="getSortingClass('seker_date')"></i></th> 
+                <th ng-click="sortBy('unit')"> יחידה <i ng-class="getSortingClass('unit')"></i></th> 
+                <th ng-click="sortBy('desc')"> תאור <i ng-class="getSortingClass('desc')"></i></th> 
+                <th ng-click="sortBy('userid')"> פותח הסקר <i ng-class="getSortingClass('userid')"></i></th> 
+                <th ng-click="sortBy('mivneid')"> מבנה <i ng-class="getSortingClass('mivneid')"></i></th> 
+                <th ng-click="sortBy('status')"> סקר מספר <i ng-class="getSortingClass('status')"></i></th> 
+                
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr  ng-repeat="inseker in skarim | filter : filterSkarim | orderBy : propName : direction" ng-dblclick="opensekerline(inseker.id)">
+                    <td contenteditable = {{setcontenteditable(inseker)}} >{{inseker.id}} </td> 
+                    <td contenteditable = {{setcontenteditable(inseker)}} >{{inseker.seker_date | date : "dd/MM/yyyy" }}</td>
+                    <td contenteditable = {{setcontenteditable(inseker)}} >{{inseker.unit}}</td>
+                    <td contenteditable = {{setcontenteditable(inseker)}} >{{inseker.desc}} </td> 
+                    <td contenteditable = {{setcontenteditable(inseker)}} >{{getuserdetails(inseker.id).name}}</td>
+                    <td contenteditable = {{setcontenteditable(inseker)}} >{{getMivneDetails(inseker.mivneid).desc}}</td>
+                    <td contenteditable = {{setcontenteditable(inseker)}} >{{inseker.status}}</td>
+                </tr>     
             
-
-
-            </tr>
-          </thead>
-          <tbody >
-              <tr  ng-repeat="inseker in skarim | filter : filterSkarim | orderBy : propName : direction" ng-dblclick="opensekerline(inseker.id)">
-                  <td contenteditable = {{setcontenteditable(inseker)}} >{{inseker.id}} </td> 
-                  <td contenteditable = {{setcontenteditable(inseker)}} >{{inseker.seker_date | date : "dd/MM/yyyy" }}</td>
-                  <td contenteditable = {{setcontenteditable(inseker)}} >{{inseker.unit}}</td>
-                  <td contenteditable = {{setcontenteditable(inseker)}} >{{inseker.desc}} </td> 
-                  <td contenteditable = {{setcontenteditable(inseker)}} >{{getuserdetails(inseker.id).name}}</td>
-                  <td contenteditable = {{setcontenteditable(inseker)}} >{{getMivneDetails(inseker.mivneid).desc}}</td>
-                  <td contenteditable = {{setcontenteditable(inseker)}} >{{inseker.status}}</td>
-              </tr>     
-           
-          </tbody>
-         
-    </table>
+            </tbody>
+        </table>
+    </div>
   <p>* לחץ Double Click להיכנס לשורות הסקר </p>
   <button type="button" class="btn btn-success" ng-click="newseker()" ng-show="showitem('sekernew')">חדש</button>
   
