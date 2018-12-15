@@ -1,7 +1,8 @@
 <navbar-recipe></navbar-recipe>
 <div class="container">
   <h2>טבלאות מערכת</h2>
- <table class="table table-success" >
+  <div class="table-wrapper-scroll-y">
+      <table class="table table-bordered table-striped" >
       <thead>
         <tr >
           <th>No.</th>
@@ -18,8 +19,8 @@
        
       </tbody>
       
-      
-  </table>
+    </table>
+  </div>
   <p>* להיכנס לפרטי הטבלה לחץ  Double Click על השורה המבוקשת </p>
   <button type="button" class="btn btn-success" ng-click="newTable()" ng-show="showitem('systemnew')">חדש</button>
   

@@ -4,13 +4,14 @@ app.factory("mivne", function($q, $http, user) {
     var wasEverLoaded = false;
     var comp =  user.getcomp()
 
-    function Mivne(Mivnedet) {
+    function Mivne(Mivnedet,flag) {
  
         this.comp = Mivnedet.comp; 
         this.id = Mivnedet.id;
         this.desc = Mivnedet.desc;
         this.unit = Mivnedet.unit;
         this.type = Mivnedet.type;
+        this.json = flag ;
        
     }
 
@@ -27,7 +28,7 @@ app.factory("mivne", function($q, $http, user) {
             $http.get(getMivnimURL).then(function(response) {
  
                for (var i = 0; i < response.data.length; i++) {
-                    var mivne = new Mivne(response.data[i]);
+                    var mivne = new Mivne(response.data[i],0);
                     mivnim.push(mivne);
                 }
                 wasEverLoaded = true;
@@ -81,7 +82,7 @@ app.factory("mivne", function($q, $http, user) {
         var id = getNextID() ; 
          
 
-        var newMivne = new Mivne ( comp  ,  id ,  desc, unit, type );
+        var newMivne = new Mivne ( comp  ,  id ,  desc, unit, type , 1);
 
         mivnim.push(newMivne);
         async.resolve(newMivne);
@@ -110,10 +111,24 @@ app.factory("mivne", function($q, $http, user) {
 
     }
 
+    function getMivneTypeDesc(mivnetype) {
+
+        var desc ;
+
+        
+
+        return desc ; 
+          
+
+
+    }
+
     getActiveMivnim().then(function(mivnim) {
     }, function(error) {
    $log.error(error);
    });
+
+   
 
 
     return {
@@ -121,6 +136,7 @@ app.factory("mivne", function($q, $http, user) {
              createMivne: createMivne,
              getNumOfMivnim: getNumOfMivnim,
              getMivneById , getMivneById ,
+             getMivneTypeDesc , getMivneTypeDesc , 
              mivnim : mivnim
     }
 })

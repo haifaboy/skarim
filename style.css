@@ -159,7 +159,7 @@ span.psw {
 
   th , tr , td , thead , .table{
     border : 2px solid black ;
- 
+   
   }
 
   tr {
@@ -175,6 +175,7 @@ span.psw {
 
   }
 
+  
   .table thead th {
 
     border-bottom: 2px solid black ;
@@ -196,7 +197,26 @@ span.psw {
 
   }
 
-  
+ 
+
+#sysemtablebody td:last-child {
+
+   display: none ;
+
+}  
+
+.table-wrapper-scroll-y {
+    display: block;
+    max-height: 500px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+
+    .buttontable {
+
+         margin-top: 10px ;
+
+    }
   
 
 

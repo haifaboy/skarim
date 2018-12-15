@@ -87,6 +87,7 @@ app.controller("tablePageCtrl", function($scope, $location,  $routeParams , user
         this.id = user.id ;
         this.name = user.name ;
         this.unit = user.unit ;
+        
 
         if ( issuperuser) {
           
@@ -96,8 +97,22 @@ app.controller("tablePageCtrl", function($scope, $location,  $routeParams , user
          } 
 
          this.email = user.email ;
-       
+         this.json = user.json ;
 
+
+    }
+
+    function myMivne(smivne){
+
+
+        
+        this.id = smivne.id;
+        this.desc = smivne.desc;
+        this.unit = smivne.unit;
+        this.type = smivne.type;
+        this.super = user.getMivneSuperviser(smivne.unit) ;
+        this.json = smivne.json ;
+     
 
     }
 
@@ -106,32 +121,39 @@ app.controller("tablePageCtrl", function($scope, $location,  $routeParams , user
 
         switch($scope.id) {
             case 'משתמשים'  :
-
            
+       
+                        user.getallusers().then(function(users) {
 
-             user.getallusers().then(function(users) {
-
-                for ( var i = 0 ; i < user.users.length ; i++) {
+                        for ( var i = 0 ; i < user.users.length ; i++) {
 
 
-                    var suser = new myUser(user.users[i]) ;
+                            var suser = new myUser(user.users[i]) ;
 
-                    $scope.tableitems.push(suser) } ;
+                            $scope.tableitems.push(suser) } ;
 
-               
-
-                    }, function(error) {
-                          $log.error(error);
-                });
+                           
+                            
+                            }, function(error) {
+                                $log.error(error);
+                });  
              
                             
                 break ;              
             case 'מבנים' :
 
-                  /*  getActiveMivnim().then(function(mivnim) {
+            mivne.getActiveMivnim().then(function(mivnim) {
+
+                for ( var i = 0 ; i < mivne.mivnim.length ; i++) {
+
+                    var smivne = new myMivne(mivne.mivnim[i]) ;
+
+                    $scope.tableitems.push(smivne) } ;
+                       
                     }, function(error) {
-                $log.error(error);
-                });  */
+                          $log.error(error);
+                });
+              
                 break ;
               
             default:
@@ -160,10 +182,11 @@ app.controller("tablePageCtrl", function($scope, $location,  $routeParams , user
 
     }
 
+    
     $scope.setcontenteditable = function(intable){
 
                       
-        return ( intable.id === $scope.tableitems[numOfItems - 1].id && intable.json ===  0 ) ;
+        return ( intable.id === $scope.tableitems[$scope.tableitems.length - 1].id && intable.json ===  0 ) ;
         
 
     }
@@ -178,5 +201,5 @@ app.controller("tablePageCtrl", function($scope, $location,  $routeParams , user
 
     $scope.showhead() ;
     $scope.showdetails();
-   // $scope.setcontenteditable();
+    
 });

@@ -16,6 +16,7 @@ app.factory("user", function($q, $http) {
         this.comp = plainUser.comp;
         if ( flag === 0 || isSuperUser()) { this.pass = plainUser.pass; } else {this.pass = '' } ;  
         this.email = plainUser.email;
+        this.json = flag ; 
 
         
     }
@@ -160,8 +161,7 @@ app.factory("user", function($q, $http) {
                
               
                 } else {
-                  
-                   
+                    
                     activeUser =  null ;
                     async.reject("תעודת זהות או סיסמא שגויה")
                 }
@@ -178,9 +178,10 @@ app.factory("user", function($q, $http) {
     {
         var async = $q.defer();  
 
+        
         if (isLoggedIn())  {
 
-            if (wasEverLoaded) {
+            if (users.length > 0 ) {
                 async.resolve(users);
             } else {
                    
@@ -314,17 +315,51 @@ app.factory("user", function($q, $http) {
 
 
     }
+
+
+    function getMivneSuperviser(unit)   {
+
+         var supervisor ;
+
+        for  ( i = 0 ; i < users.length ; i++) {
+
+             if ( users[i].unit === unit && user[i].usertype === "UNITSUPER" ) {
+
+                supervisor = user[i].name
+
+             } 
+
+
+             return supervisor ; 
+
+
+
+
+        }
+
+
+       
+    }
+
     function logout() {
 
         activeUser = null ;
         remlocal() ;
+
+
+
+
+
       
     }
 
+     
+
     getallusers().then(function(users) {
+         
          }, function(error) {
         $log.error(error);
-        });
+        }); 
 
     return {
         login: login,
@@ -341,6 +376,7 @@ app.factory("user", function($q, $http) {
         isSafety : isSafety ,
         addUser : addUser ,
         getUserDetails : getUserDetails ,
+        getMivneSuperviser : getMivneSuperviser ,
         users : users
     }
 })

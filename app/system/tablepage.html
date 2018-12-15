@@ -1,27 +1,23 @@
 <navbar-recipe></navbar-recipe>
-<div class="container">
+<div class="container ">
     <h2>{{id}}</h2>
-   <table class="table table-success" >
-        <thead>
-          <tr >
-            <th ng-repeat="tablehead in tableheads" ng-show = "showheader(tablehead)" >{{tablehead}}</th> 
-          </tr>
-        </thead>
-        <tbody >
-            <tr ng-repeat="row in tableitems">
-                <td ng-repeat="column in row">
-                  {{ column }}
-                </td>
-              </tr>
-
-          <!-- <tr  ng-repeat="tableitem in tableitems" ng-dblclick="opentable(table)">
-                <td contenteditable = {{setcontenteditable(table)}} >{{1}} </td> 
-                <td contenteditable = {{setcontenteditable(table)}} >{{1}}</td>
-                <td contenteditable = {{setcontenteditable(table)}} >{{1}}</td>
-            </tr>    -->  
-         
-        </tbody>
-     </table>
-     <button type="button" class="btn btn-success" ng-click="newRow()" ng-show="showitem('tablepagenew'+id)">חדש</button>
-     <button type="button" class="btn btn-success" ng-click="goback()">חזור</button>
+    <div class="table-wrapper-scroll-y">
+      <table class="table table-bordered table-striped" >
+          <thead>
+            <tr >
+              <th ng-repeat="tablehead in tableheads" ng-show = "showheader(tablehead)" >{{tablehead}}</th> 
+            </tr>
+          </thead>
+          <tbody id="sysemtablebody">
+              <tr ng-repeat="row in tableitems">
+                  <td ng-repeat="column in row"  contenteditable = {{setcontenteditable(row)}}   >
+                    {{ column }}
+                  </td>
+                </tr>
+          
+          </tbody>
+      </table>
+    </div>
+    <button type="button" class="btn btn-success  buttontable" ng-click="newRow()" ng-show="showitem('tablepagenew'+id)">חדש</button>
+    <button type="button" class="btn btn-success  buttontable" ng-click="goback()">חזור</button>
 </div>    
