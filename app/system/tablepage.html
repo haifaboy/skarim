@@ -8,14 +8,20 @@
           </tr>
         </thead>
         <tbody >
-           <tr  ng-repeat="tableitem in tableitems" ng-dblclick="opentable(table)">
+            <tr ng-repeat="row in tableitems">
+                <td ng-repeat="column in row">
+                  {{ column }}
+                </td>
+              </tr>
+
+          <!-- <tr  ng-repeat="tableitem in tableitems" ng-dblclick="opentable(table)">
                 <td contenteditable = {{setcontenteditable(table)}} >{{1}} </td> 
                 <td contenteditable = {{setcontenteditable(table)}} >{{1}}</td>
                 <td contenteditable = {{setcontenteditable(table)}} >{{1}}</td>
-            </tr>      
+            </tr>    -->  
          
         </tbody>
      </table>
+     <button type="button" class="btn btn-success" ng-click="newRow()" ng-show="showitem('tablepagenew'+id)">חדש</button>
+     <button type="button" class="btn btn-success" ng-click="goback()">חזור</button>
 </div>    
-<button type="button" class="btn btn-success" ng-click="newRow()" ng-show="showitem('tablepagenew'+id)">חדש</button>
-<button type="button" class="btn btn-success" ng-click="goback()">חזור</button>

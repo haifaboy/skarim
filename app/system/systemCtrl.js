@@ -2,9 +2,14 @@ app.controller("systemrCtrl", function($scope, $location, user, tables  ) {
 
     if   ( ! user.isLoggedIn() ) {   $location.path("/"); } 
 
-    tables.getActiveTables()  ;
-   
-    $scope.tables = tables.tables ;
+
+    $scope.tables  = [];
+    tables.getActiveTables().then(function(tables) {
+      $scope.tables = tables ;
+  }, function(error) {
+      $log.error(error);
+    });
+
    
     $scope.newTable = function(){
 

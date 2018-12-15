@@ -2,9 +2,12 @@ body {
     direction: rtl;
     text-align: right;
     background-image:  linear-gradient(to bottom right, lightblue , Gainsboro ); 
-    background-repeat: no-repeat;
+    background-size: auto;
+    background-repeat: repeat  ;
     background-size: 100%;
     height: 100vh;
+    
+    
 } 
 
 .jumbotron {
@@ -74,6 +77,8 @@ body {
 
 }  
 
+
+
 #imglogin  {
     
     width: 80px;
@@ -96,6 +101,12 @@ body {
 
    text-align: right ;
   
+
+  }
+
+  h2 {
+
+        padding-bottom: 20px;
 
   }
 
@@ -169,6 +180,23 @@ span.psw {
     border-bottom: 2px solid black ;
 
   }
+
+  #searchseker {
+
+
+      margin-bottom: 10px;
+     
+
+  }
+
+  #searchsekerrow {
+
+        margin-right: 0px ;
+       
+
+  }
+
+  
   
 
 

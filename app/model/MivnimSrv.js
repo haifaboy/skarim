@@ -73,14 +73,7 @@ app.factory("mivne", function($q, $http, user) {
 
     }
 
-    function getMivnim() {
-
-          return mivnim ; 
-
-
-    }
-
-    
+      
 
     function createMivne( desc, unit, type) {
         var async = $q.defer();
@@ -97,16 +90,15 @@ app.factory("mivne", function($q, $http, user) {
     }
 
     function getMivneById(id){
-   
-        var mivne = null ;   
 
+        var mivne = null ;  
+        
         for ( var i = 0 ; i < mivnim.length ; i++) {
-
+      
             if ( id  === mivnim[i].id  ) {
-
-                mivne = mivnim[i].id
+                
+                mivne = mivnim[i]
                 i = mivnim.length + 1 ;
-
 
             }
             
@@ -118,12 +110,17 @@ app.factory("mivne", function($q, $http, user) {
 
     }
 
+    getActiveMivnim().then(function(mivnim) {
+    }, function(error) {
+   $log.error(error);
+   });
+
 
     return {
              getActiveMivnim: getActiveMivnim ,
              createMivne: createMivne,
              getNumOfMivnim: getNumOfMivnim,
-             getMivnim : getMivnim ,
-             getMivneById , getMivneById 
+             getMivneById , getMivneById ,
+             mivnim : mivnim
     }
 })

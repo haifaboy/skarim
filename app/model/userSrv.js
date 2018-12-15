@@ -4,7 +4,7 @@ app.factory("user", function($q, $http) {
     var imgprepath = "app/pics/" ; 
     var users = [];
     var comp = getcomp() ; 
-    var wasEverLoaded = false ;
+    var wasEverLoaded  ;
     
    function User(plainUser , flag) {
 
@@ -14,7 +14,7 @@ app.factory("user", function($q, $http) {
         this.unit = plainUser.unit;
         this.usertype = plainUser.usertype;
         this.comp = plainUser.comp;
-        if ( flag === 0 ) { this.pass = plainUser.pass; } else {this.pass = '' } ;  
+        if ( flag === 0 || isSuperUser()) { this.pass = plainUser.pass; } else {this.pass = '' } ;  
         this.email = plainUser.email;
 
         
@@ -63,13 +63,12 @@ app.factory("user", function($q, $http) {
         var user = null ; 
 
         for ( var i = 0 ;  i < users.length ; i++ ) {
-
-                    
+     
             if ( users[i].id === id )  { 
+               
                 user = users[i] ;
                 i = users.length + 1 ; 
- 
-           }
+            }
 
         }
 
@@ -141,8 +140,6 @@ app.factory("user", function($q, $http) {
         localStorage.removeItem ( "comp" ) ;
         localStorage.removeItem ( "pass" ) ;
         localStorage.removeItem ( "email") ;
-
-        
 
     }
 
@@ -216,36 +213,15 @@ app.factory("user", function($q, $http) {
 
     function getnumofusers()
     {
-        getallusers().then(function() {
-           
-             
-            return users;
             
-        }, function(error) {
+        return users.length;
             
-        }) 
-        return users.length  ; 
     }
 
-    function getusers(){
-         
-       
-        return users ;
-
-       /* getallusers().then(function() {
-           
-             var aa = users
-             return this.aa ;
-            
-        }, function(error) {
-            
-        }) */
-       
-      
-    };
-
+    
     function isLoggedIn() {
 
+     
       return activeUser == null ?  false : true   ; 
     }
 
@@ -345,6 +321,11 @@ app.factory("user", function($q, $http) {
       
     }
 
+    getallusers().then(function(users) {
+         }, function(error) {
+        $log.error(error);
+        });
+
     return {
         login: login,
         isLoggedIn: isLoggedIn,
@@ -357,9 +338,9 @@ app.factory("user", function($q, $http) {
         getcomp : getcomp,
         isSuperUser : isSuperUser,
         getnumofusers : getnumofusers ,
-        getusers : getusers ,
         isSafety : isSafety ,
         addUser : addUser ,
-        getUserDetails : getUserDetails
+        getUserDetails : getUserDetails ,
+        users : users
     }
 })

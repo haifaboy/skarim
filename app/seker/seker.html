@@ -1,45 +1,53 @@
 <navbar-recipe></navbar-recipe>
-<div class="container">
-  <h2>סקרים</h2>
- <table class="table table-success" >
-      <thead>
-        <tr >
-
-
-                "id" : 1 ,
-                "comp": "HHI",
-                "desc" : "סקר מבנה 1" ,
-                "seker_date" : "2018-01-01" ,
-                "mivneid" : 1 ,
-                "userid"  : 2 ,
-                "status"  : "open" 
-
-          <th>מספר סקר</th>
-          <th>תאריך</th>
-          <th>יחידה</th>
-          <th>תאור</th>
-          <th>פותח הסקר</th>
-          <th>מבנה</th>
-          <th>סטטוס</th>
-        </tr>
-      </thead>
-      <tbody >
-          <tr  ng-repeat="seker in skarim"   ng-dblclick="opensekerline(seker.id)">
-              <td contenteditable = {{setcontenteditable(seker)}} >{{seker.id}} </td> 
-              <td contenteditable = {{setcontenteditable(seker)}} >{{seker.seker_date }}</td>
-              <td contenteditable = {{setcontenteditable(seker)}} >{{seker.unit}}</td>
-              <td contenteditable = {{setcontenteditable(seker)}} >{{seker.desc}} </td> 
-              <td contenteditable = {{setcontenteditable(seker)}} >{{getuserdetails(seker.id).name}}</td>
-              <td contenteditable = {{setcontenteditable(seker)}} >{{getMivneDetails(mivneid).desc}}</td>
-              <td contenteditable = {{setcontenteditable(seker)}} >{{seker.desc}}</td>
-              <td contenteditable = {{setcontenteditable(seker)}} >{{seker.status}}</td>
-          </tr>     
+<div class="container" #id="divskarim">
+    <h2>סקרים</h2>
+    <form class="form" id="searchseker">
        
-      </tbody>
-     
-  </table>
+       <div class="form-group row" id="searchsekerrow">
+          <lable>סנן לפי : </lable>
+            <select class="form-control form-control-sm col-2" id="sel1" ng-model="filterfild" ng-change = "clearSearchText()">
+                <option value=1 >סקר מספר</option>
+                <option value=2 >תאריך סקר</option>
+                <option value=3> יחידה</option>
+                <option value=4 >תאור</option>
+                <option value=5 >פותח הסקר</option>
+                <option value=6>מבנה</option>
+                <option value=7>סטטוס</option>
+            </select>
+            <input type="text" class="form-control form-control-sm col-5" placeholder="ערך" ng-model="searchText" >
+        </div> 
+    </form>
+    <table class="table table-success" >
+        <thead>
+            <tr >
+              <th ng-click="sortBy('id')"> סקר מספר <i ng-class="getSortingClass('id')"></i></th>  
+              <th ng-click="sortBy('seker_date')"> תאריך סקר <i ng-class="getSortingClass('seker_date')"></i></th> 
+              <th ng-click="sortBy('unit')"> יחידה <i ng-class="getSortingClass('unit')"></i></th> 
+              <th ng-click="sortBy('desc')"> תאור <i ng-class="getSortingClass('desc')"></i></th> 
+              <th ng-click="sortBy('userid')"> פותח הסקר <i ng-class="getSortingClass('userid')"></i></th> 
+              <th ng-click="sortBy('mivneid')"> מבנה <i ng-class="getSortingClass('mivneid')"></i></th> 
+              <th ng-click="sortBy('status')"> סקר מספר <i ng-class="getSortingClass('status')"></i></th> 
+            
+
+
+            </tr>
+          </thead>
+          <tbody >
+              <tr  ng-repeat="inseker in skarim | filter : filterSkarim | orderBy : propName : direction" ng-dblclick="opensekerline(inseker.id)">
+                  <td contenteditable = {{setcontenteditable(inseker)}} >{{inseker.id}} </td> 
+                  <td contenteditable = {{setcontenteditable(inseker)}} >{{inseker.seker_date | date : "dd/MM/yyyy" }}</td>
+                  <td contenteditable = {{setcontenteditable(inseker)}} >{{inseker.unit}}</td>
+                  <td contenteditable = {{setcontenteditable(inseker)}} >{{inseker.desc}} </td> 
+                  <td contenteditable = {{setcontenteditable(inseker)}} >{{getuserdetails(inseker.id).name}}</td>
+                  <td contenteditable = {{setcontenteditable(inseker)}} >{{getMivneDetails(inseker.mivneid).desc}}</td>
+                  <td contenteditable = {{setcontenteditable(inseker)}} >{{inseker.status}}</td>
+              </tr>     
+           
+          </tbody>
+         
+    </table>
   <p>* לחץ Double Click להיכנס לשורות הסקר </p>
-  <button type="button" class="btn btn-success" ng-click="newTable()" ng-show="showitem('sekernew')">חדש</button>
+  <button type="button" class="btn btn-success" ng-click="newseker()" ng-show="showitem('sekernew')">חדש</button>
   
 </div>
 

@@ -15,7 +15,7 @@ app.config(function($routeProvider) {
         templateUrl: "app/newseker/newseker.html",
         controller: "newSekerrCtrl"
     }).when("/sekerlines/:id" , {
-        templateUrl: "app/skarlines/skarlines.html/",
+        templateUrl: "app/sekerlines/sekerlines.html",
         controller: "sekerLinesrCtrl"
     }).when("/reports" , {
         templateUrl: "app/reports/reports.html",

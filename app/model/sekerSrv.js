@@ -2,7 +2,6 @@ app.factory("seker", function($q, $http , user) {
 
     
     var skarim = [];
-  
     var wasEverLoaded = false ;
 
     var openskarim ;
@@ -25,8 +24,9 @@ app.factory("seker", function($q, $http , user) {
     
     function getskarim() {
         var async = $q.defer();
-        
-       
+
+        skarim = [];
+    
         if ( user.isSuperUser() || user.isSafety() ) { 
 
             var loginURL = "https://my-json-server.typicode.com/haifaboy/skarim/skarim?comp=" +
@@ -47,6 +47,8 @@ app.factory("seker", function($q, $http , user) {
                         var sekeri = new Seker(response.data[i],0);
                         skarim.push(sekeri);
                     }
+
+                   
                
                     async.resolve(skarim);
                
@@ -172,7 +174,7 @@ app.factory("seker", function($q, $http , user) {
         
         for ( var i = 0 ;  i < skarim.length ; i++ ) {
 
-            skarim[i].status = 'open' ? openskarim ++ : closeskarim ++ ;
+            skarim[i].status === 'open' ? openskarim ++ : closeskarim ++ ;
     
         }    
 
@@ -188,6 +190,7 @@ app.factory("seker", function($q, $http , user) {
         closeSeker : closeSeker ,
         calcskarim , calcskarim ,
         getNumOfClosedSkarim : getNumOfClosedSkarim ,
-        getNumOfOpenedSkarim : getNumOfOpenedSkarim
+        getNumOfOpenedSkarim : getNumOfOpenedSkarim  ,
+        skarim : skarim 
     }  
 })

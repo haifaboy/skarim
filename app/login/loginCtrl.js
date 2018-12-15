@@ -4,6 +4,7 @@ app.controller("loginCtrl", function($q ,$scope, $location, user , mivne) {
     $scope.invalidLogin = false;
     $scope.remember = false ;
     $scope.showloginform = false ;
+    $scope.users  = [];
 
     $scope.getRemeber = function () {
 
@@ -28,8 +29,6 @@ app.controller("loginCtrl", function($q ,$scope, $location, user , mivne) {
 
         user.login($scope.tz, $scope.pwd).then(function() {
             // success login
-            user.getallusers();
-            mivne.getActiveMivnim();
             $location.path("/");
             
         }, function(error) {
