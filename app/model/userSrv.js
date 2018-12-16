@@ -56,6 +56,8 @@ app.factory("user", function($q, $http) {
         var newuser = new User(suser,1);
         users.push(newuser) ;
 
+        return id ;
+
     }
 
 
@@ -80,14 +82,16 @@ app.factory("user", function($q, $http) {
     function setlocal(plainUser) {
 
      
-        localStorage.setItem ( "id" , plainUser.id  ) ;
-        localStorage.setItem ( "tz" , plainUser.tz  ) ;
-        localStorage.setItem ( "name" , plainUser.name  ) ;
-        localStorage.setItem ( "unit" , plainUser.unit  ) ;
-        localStorage.setItem ( "usertype" , plainUser.usertype  ) ;
-        localStorage.setItem ( "comp" , plainUser.comp  ) ;
-        localStorage.setItem ( "pass" , plainUser.pass  ) ;
-        localStorage.setItem ( "email" , plainUser.email  ) ;
+        localStorage.setItem("activeUser", JSON.stringify(plainUser));
+
+        // localStorage.setItem ( "id" , plainUser.id  ) ;
+        // localStorage.setItem ( "tz" , plainUser.tz  ) ;
+        // localStorage.setItem ( "name" , plainUser.name  ) ;
+        // localStorage.setItem ( "unit" , plainUser.unit  ) ;
+        // localStorage.setItem ( "usertype" , plainUser.usertype  ) ;
+        // localStorage.setItem ( "comp" , plainUser.comp  ) ;
+        // localStorage.setItem ( "pass" , plainUser.pass  ) ;
+        // localStorage.setItem ( "email" , plainUser.email  ) ;
       
 
     }
@@ -110,18 +114,18 @@ app.factory("user", function($q, $http) {
     function getlocal() {
 
        
-        if (localStorage.getItem ( "id" ) ) { 
+        if (localStorage.getItem ( "activeUser" ) ) { 
 
             
-            this.id = localStorage.getItem ( "id" ) ;
-            this.tz = localStorage.getItem ( "tz" ) ;
-            this.name = localStorage.getItem ( "name" ) ;
-            this.unit = localStorage.getItem ( "unit" ) ;
-            this.usertype = localStorage.getItem ( "usertype" ) ;
-            this.comp = localStorage.getItem ( "comp" ) ;
-            this.pass = localStorage.getItem ( "pass" ) ;
-            this.email = localStorage.getItem ( "email" ) ; 
-            return this ;
+            // this.id = localStorage.getItem ( "id" ) ;
+            // this.tz = localStorage.getItem ( "tz" ) ;
+            // this.name = localStorage.getItem ( "name" ) ;
+            // this.unit = localStorage.getItem ( "unit" ) ;
+            // this.usertype = localStorage.getItem ( "usertype" ) ;
+            // this.comp = localStorage.getItem ( "comp" ) ;
+            // this.pass = localStorage.getItem ( "pass" ) ;
+            // this.email = localStorage.getItem ( "email" ) ; 
+            return new User(JSON.parse(localStorage.getItem("activeUser")), 0);
 
         } else {
 
@@ -133,14 +137,15 @@ app.factory("user", function($q, $http) {
 
     function remlocal(plainUser) {
 
-        localStorage.removeItem ( "id" ) ;
-        localStorage.removeItem ( "tz" ) ;
-        localStorage.removeItem ( "name" ) ;
-        localStorage.removeItem ( "unit" ) ;
-        localStorage.removeItem ( "usertype" ) ;
-        localStorage.removeItem ( "comp" ) ;
-        localStorage.removeItem ( "pass" ) ;
-        localStorage.removeItem ( "email") ;
+        // localStorage.removeItem ( "id" ) ;
+        // localStorage.removeItem ( "tz" ) ;
+        // localStorage.removeItem ( "name" ) ;
+        // localStorage.removeItem ( "unit" ) ;
+        // localStorage.removeItem ( "usertype" ) ;
+        // localStorage.removeItem ( "comp" ) ;
+        // localStorage.removeItem ( "pass" ) ;
+        // localStorage.removeItem ( "email") ;
+        localStorage.removeItem("activeUser");
 
     }
 

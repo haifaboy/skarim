@@ -1,6 +1,6 @@
 <navbar-recipe></navbar-recipe>
 <div class="container ">
-    <h2>{{id}}</h2>
+    <h2>{{mid}}</h2>
     <div class="table-wrapper-scroll-y">
       <table class="table table-bordered table-striped" >
           <thead>
@@ -18,6 +18,7 @@
           </tbody>
       </table>
     </div>
-    <button type="button" class="btn btn-success  buttontable" ng-click="newRow()" ng-show="showitem('tablepagenew-'+id)">חדש</button>
+    <button type="button" class="btn btn-success  buttontable" ng-click="addnewrow()" ng-show="showitem('tablepagenew-'+mid)">חדש</button>
+    <button type="button" class="btn btn-success  buttontable" ng-click="update()" ng-show="showsave()">שמור</button>
     <button type="button" class="btn btn-success  buttontable" ng-click="goback()">חזור</button>
 </div>    

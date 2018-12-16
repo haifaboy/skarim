@@ -3,8 +3,9 @@ app.controller("tablePageCtrl", function($scope, $location,  $routeParams , user
       
     if   ( ! user.isLoggedIn() ) {   $location.path("/"); } 
 
-    $scope.id = $routeParams.id;  
+    $scope.mid = $routeParams.id;  
     var issuperuser = user.isSuperUser() ;
+    var newid = []
 
     $scope.tableheads = [] ;
     $scope.tableitems = [] ;
@@ -28,7 +29,7 @@ app.controller("tablePageCtrl", function($scope, $location,  $routeParams , user
 
     $scope.showhead  = function() { 
 
-        switch($scope.id) {
+        switch($scope.mid) {
             case 'משתמשים'  :
 
                 $scope.tableheads[0] = 'תעודת זהות' ; 
@@ -122,7 +123,7 @@ app.controller("tablePageCtrl", function($scope, $location,  $routeParams , user
     $scope.showdetails = function() {
 
 
-        switch($scope.id) {
+        switch($scope.mid) {
             case 'משתמשים'  :
            
        
@@ -200,6 +201,86 @@ app.controller("tablePageCtrl", function($scope, $location,  $routeParams , user
            $location.path('/system')
 
     }
+
+    $scope.addnewrow = function(){
+
+        switch($scope.mid) {
+            case 'משתמשים'  :
+
+               
+                this.id  = -1  ;
+                this.tz = '';
+                this.name = '';
+                this.unit = '';
+                this.usertype = '';
+                this.comp = '';
+                this.pass = '' ; 
+                this.email = '';
+                this.json = 1 ; 
+
+                var suser = new myUser(this) ;
+                $scope.tableitems.push(suser)  ;
+                break ;
+
+            case 'מבנים' :
+
+                
+                this.comp = ''; 
+                this.id = -1;
+                this.desc = '';
+                this.unit = '';
+                this.type = '' ; 
+                this.json = 1 ;  
+
+                var smivne = new myMivne(this) ;
+                $scope.tableitems.push(smivne)  
+              
+                break ;
+
+            default:
+
+        }   
+
+        
+
+    }
+
+    
+    $scope.update = function(){
+
+        switch($scope.mid) {
+            case 'משתמשים'  :
+
+                var tz,name,unit,usertype,pass,email ; 
+
+
+                   user.addUser(tz,name,unit,usertype,pass,email) ;
+               
+                   break ;
+
+           
+            case 'מבנים' :
+
+            var desc ='', unit='', type='' ;
+
+                  mivne.createMivne( desc, unit, type) ;
+
+                  break ;
+
+            default:
+
+        }   
+
+        newid.splice ( 0 , newid.length )  ; 
+
+
+    }    
+
+    $scope.showsave =  function(){
+
+        return newid.length > 0 ? true : false  ;
+
+    }    
 
 
     $scope.showhead() ;

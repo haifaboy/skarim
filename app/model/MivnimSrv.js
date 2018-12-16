@@ -77,18 +77,41 @@ app.factory("mivne", function($q, $http, user) {
       
 
     function createMivne( desc, unit, type) {
-        var async = $q.defer();
-
+       
         var id = getNextID() ; 
          
-
         var newMivne = new Mivne ( comp  ,  id ,  desc, unit, type , 1);
 
         mivnim.push(newMivne);
-        async.resolve(newMivne);
 
-        return async.promise;
+        return id ;
+       
+   
     }
+
+
+    function updateMivne(id , desc, unit, type)  {
+
+        for ( var i = 0 ; i < mivnim.length ; i++) {
+      
+            if ( id  === mivnim[i].id  ) {
+                
+               
+                mivnim[i].desc = desc ,
+                mivnim[i].unit = unit ,
+                mivnim[i].type = type
+                i = mivnim.length + 1 ; 
+
+            }
+            
+      
+        }
+
+
+
+
+    }
+
 
     function getMivneById(id){
 
@@ -135,10 +158,10 @@ app.factory("mivne", function($q, $http, user) {
 
     }
 
-    getActiveMivnim().then(function(mivnim) {
-    }, function(error) {
-   $log.error(error);
-   });
+//     getActiveMivnim().then(function(mivnim) {
+//     }, function(error) {
+//    $log.error(error);
+//    });
 
    
 
@@ -149,6 +172,7 @@ app.factory("mivne", function($q, $http, user) {
              getNumOfMivnim: getNumOfMivnim,
              getMivneById , getMivneById ,
              getMivneTypeDesc , getMivneTypeDesc , 
-             mivnim : mivnim
+             updateMivne : updateMivne , 
+             mivnim : mivnim 
     }
 })

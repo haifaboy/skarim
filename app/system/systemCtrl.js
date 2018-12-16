@@ -35,7 +35,7 @@ app.controller("systemrCtrl", function($scope, $location, user, tables  ) {
     $scope.setcontenteditable = function(intable){
 
              
-        return ( intable.id === $scope.tables[$scope.tables.length - 1].id && intable.json ===  0 ) ;
+        return ( intable.id === $scope.tables[$scope.tables.length - 1].id && intable.json ===  1 ) ;
         
 
     }
